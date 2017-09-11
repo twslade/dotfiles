@@ -1,0 +1,20 @@
+#### host database
+*.sqlite3
+
+#### IDE
+/.project
+/.pydevproject
+/.classpath
+/.buildpath
+/.settings/
+/.idea
+*.iml
+
+#### vim
+*~
+*.swp
+*.swo
+
+
+#### GENERAL
+.DS_Store
