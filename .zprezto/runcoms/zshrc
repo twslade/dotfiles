@@ -46,6 +46,11 @@ xdebug-cli-off(){
 	unset XDEBUG_CONFIG
 }
 
+refresh-dot-files(){
+	cd ~
+	git pull origin master
+}
+
 surf(){
 	vlc https://cams.cdn-surfline.com/wsc-east/ec-washoutcam.stream/chunklist.m3u8
 }
