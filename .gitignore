@@ -16,6 +16,10 @@
 
 #VIM
 !.vimrc
+!.vim
+!.vim/*
+!.vim/colors
+!.vim/colors/*
 
 # Cheat
 !.cheat
