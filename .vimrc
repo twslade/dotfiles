@@ -1,5 +1,8 @@
-syntax enable
+set nocompatible              " be iMproved, required
 
+so ~/.vim/plugins.vim
+
+syntax enable
 
 set backspace=indent,eol,start
 let mapleader = ','
