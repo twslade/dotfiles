@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+set shell=/bin/bash
 
 so ~/.vim/plugins.vim
 
