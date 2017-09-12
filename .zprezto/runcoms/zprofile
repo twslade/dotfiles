@@ -47,6 +47,7 @@ path=(
   $HOME/.node/bin/
   $path
   $HOME/.config/composer/vendor/bin/
+  $HOME/go/bin/
 )
 
 #
