@@ -21,7 +21,7 @@ if [ -f '/home/thomas/applications/google-cloud-sdk/path.zsh.inc' ]; then source
 if [ -f '/home/thomas/applications/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/thomas/applications/google-cloud-sdk/completion.zsh.inc'; fi
 
 function powerline_precmd() {
-    PS1="$($HOME/go/bin/powerline-go -error $? -shell zsh)"
+    PS1="$($HOME/go/bin/powerline-go -error $? -shell zsh -cwd-max-dir-size 5 -modules user,host,cwd,gitlite,jobs,exit)"
 }
 
 function install_powerline_precmd() {
