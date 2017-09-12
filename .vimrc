@@ -34,6 +34,10 @@ nmap <C-K> <C-W><C-K>
 nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
+" Nerdtree
+execute "set <M-1>=\e1"
+nmap <M-1> :NERDTreeToggle<cr>
+
 
 "===================MAPPINGS===================="
 
