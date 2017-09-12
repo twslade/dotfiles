@@ -1,6 +1,5 @@
 syntax enable
 
-colorscheme desert
 
 set backspace=indent,eol,start
 let mapleader = ','
@@ -12,6 +11,8 @@ set hlsearch
 set incsearch
 "=================SEARCH================="
 
+colorscheme atom-dark-256
+set linespace=15
 
 "===================MAPPINGS===================="
 
@@ -20,6 +21,16 @@ nmap <Leader>ev :tabedit ~/.vimrc<cr>
 
 "Turn off lingering search results highlighting
 nmap <Leader><space> :nohlsearch<cr>
+
+set splitbelow
+set splitright
+
+"Easier split naviations
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-H> <C-W><C-H>
+nmap <C-L> <C-W><C-L>
+
 
 "===================MAPPINGS===================="
 
