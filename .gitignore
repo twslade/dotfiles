@@ -9,6 +9,8 @@
 !.zprezto
 !.zprezto/*
 !.zprezto/runcoms/*
+!.zprezto/custom/*
+.zprezto/custom/secrets
 
 #Zprezto - Swap
 .zprezto/runcoms/.zpreztorc.swp
