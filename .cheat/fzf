@@ -1,0 +1,59 @@
+Fuzzy completion for bash and zsh
+---------------------------------
+
+#### Files and directories
+
+Fuzzy completion for files and directories can be triggered if the word before
+the cursor ends with the trigger sequence which is by default `**`.
+
+- `COMMAND [DIRECTORY/][FUZZY_PATTERN]**<TAB>`
+
+```sh
+# Files under current directory
+# - You can select multiple items with TAB key
+vim **<TAB>
+
+# Files under parent directory
+vim ../**<TAB>
+
+# Files under parent directory that match `fzf`
+vim ../fzf**<TAB>
+
+# Files under your home directory
+vim ~/**<TAB>
+
+
+# Directories under current directory (single-selection)
+cd **<TAB>
+
+# Directories under ~/github that match `fzf`
+cd ~/github/fzf**<TAB>
+```
+
+#### Process IDs
+
+Fuzzy completion for PIDs is provided for kill command. In this case
+there is no trigger sequence, just press tab key after kill command.
+
+```sh
+# Can select multiple processes with <TAB> or <Shift-TAB> keys
+kill -9 <TAB>
+```
+
+#### Host names
+
+For ssh and telnet commands, fuzzy completion for host names is provided. The
+names are extracted from /etc/hosts and ~/.ssh/config.
+
+```sh
+ssh **<TAB>
+telnet **<TAB>
+```
+
+#### Environment variables / Aliases
+
+```sh
+unset **<TAB>
+export **<TAB>
+unalias **<TAB>
+```

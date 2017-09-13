@@ -38,6 +38,15 @@ if [ "$TERM" != "linux" ]; then
 fi
 
 
+#Include all files that end with .zsh in home directory
+config_files=(${ZDOTDIR:-$HOME}/.zprezto/custom/*)
+## load everything but the path and completion files
+for file in ${${config_files}}
+do
+  source $file
+done
+
+
 xdebug-cli-on(){
 	export XDEBUG_CONFIG="idekey=PHPSTORM"
 }
@@ -54,3 +63,5 @@ refresh-dot-files(){
 surf(){
 	vlc https://cams.cdn-surfline.com/wsc-east/ec-washoutcam.stream/chunklist.m3u8
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
