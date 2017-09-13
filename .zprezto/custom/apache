@@ -1,0 +1,79 @@
+VHOST_TEMPLATE="
+<VirtualHost *:80>
+    ServerName  {template}.dev
+	ServerAlias {template}.dev
+	DocumentRoot $SITES_DIR{template}.dev
+</VirtualHost>
+"
+
+# #Alternative 
+# VHOST_TEMPLATE="
+# <VirtualHost *:80>
+# 	ServerName  {template}.dev
+# 	ServerAlias {template}.dev
+# 	DocumentRoot $SITES_DIR{template}.dev
+#	ErrorLog ${APACHE_LOG_DIR}/{template}_error_log.log
+#	CustomLog ${APACHE_LOG_DIR}/{template}_access.log combined
+# </VirtualHost>
+# <VirtualHost *:443>
+# 	ServerName  {template}.dev
+# 	ServerAlias {template}.dev
+# 	DocumentRoot $SITES_DIR{template}.dev
+#	LogLevel warn ## possible values, from least verbosity to most: emerg, alert, crit, error, warn, notice, info, debug
+#	ErrorLog ${APACHE_LOG_DIR}/{template}_error_log.log
+#	CustomLog ${APACHE_LOG_DIR}/{template}_access.log combined
+#	SSLEngine On
+#	SSLCertificateFile $ZSH_SSL_CERT
+#	SSLCertificateKeyFile $ZSH_SSL_KEY
+# </VirtualHost>
+# "
+
+watch-apache(){
+	tail -f /var/log/apache2/error.log
+}
+
+watch-apache-all(){
+	tail -f -c0 /var/log/apache2/*error*.log
+}
+
+enable-site(){
+  	sudo a2ensite $1
+}
+
+disable-site(){
+	sudo a2dissite $1
+}
+
+restart-apache(){
+	sudo service apache2 restart
+}
+
+remove-site(){
+    sudo a2dissite $1
+	sudo rm /etc/apache2/sites-available/$1.conf	
+	sudo service apache2 reload
+}
+
+add-site(){
+
+	# read template - replace data - write into a new file
+	sudo echo "$VHOST_TEMPLATE" | sed "s/{template}/$1/g" | cat > /etc/apache2/sites-available/$1.conf
+
+	sudo a2ensite $1.conf #enable add virtual host
+
+	sudo service apache2 reload #restart server
+
+	sudo echo 127.0.0.1 $1.dev >> /etc/hosts #create reference
+}
+
+rsync-example(){
+	
+	echo "rsync -uavz -e ssh test-server:/var/www/html/media/ media/ --exclude 'catalog/product/cache/*' --exclude 'tmp/*' --exclude 'js/*' --exclude 'css/*' --exclude 'css_secure/*'"
+}
+
+turn-on-xdebug-cli(){
+	export XDEBUG_CONFIG="idekey=PHPSTORM"
+}
+turn-off-xdebug-cli(){
+	unset XDEBUG_CONFIG
+}
