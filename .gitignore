@@ -23,8 +23,18 @@
 !.PhpStorm2017.2/config/keymaps/*
 !.PhpStorm2017.2/config/plugins/*
 !.PhpStorm2017.2/config/options/*
-
-
+.PhpStorm2017.2/config/plugins/availables.xml
+.PhpStorm2017.2/config/plugins/availables.xml.etag
+.PhpStorm2017.2/config/phpstorm.key
+.PhpStorm2017.2/config/port
+.PhpStorm2017.2/config/port.lock
+.PhpStorm2017.2/config/options/dimensions.xml
+.PhpStorm2017.2/config/options/feature.usage.statistics.xml
+.PhpStorm2017.2/config/options/options.xml
+.PhpStorm2017.2/config/options/statistics.application.usages.xml
+.PhpStorm2017.2/config/options/statistics.shortcuts.xml
+.PhpStorm2017.2/config/options/statistics.toolbar.clicks.xml
+.PhpStorm2017.2/config/options/window.manager.xml
 
 #VIM
 !.vimrc
@@ -48,3 +58,4 @@
 
 # My global Git excludes file (acts as a global .gitignore)
 !.gitexcludes
+
