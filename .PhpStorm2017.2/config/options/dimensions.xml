@@ -1,0 +1,35 @@
+<application>
+  <component name="DimensionService">
+    <location key="FileChooserDialogImpl.0.0.2560.1440" x="1051" y="196" />
+    <location key="WELCOME_SCREEN.0.0.2560.1440" x="1278" y="538" />
+    <location key="com.intellij.ide.util.TipDialog.0.0.2560.1440" x="1605" y="291" />
+    <location key="find.popup.0.0.2560.1440" x="1450" y="141" />
+    <location key="CommitChangelistDialog2.0.0.2560.1440" x="885" y="-19" />
+    <location key="#com.intellij.fileTypes.FileTypeChooser.0.0.2560.1440" x="949" y="768" />
+    <location key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2.0.0.2560.1440" x="819" y="292" />
+    <location key="SettingsEditor.0.0.2560.1440" x="1384" y="304" />
+    <location key="#Browse_Repositories.0.0.2560.1440" x="214" y="34" />
+    <location key="PhpMappingAdvancedResolveDialog.0.0.2560.1440" x="431" y="250" />
+    <location key="#com.intellij.execution.impl.EditConfigurationsDialog.0.0.2560.1440" x="96" y="7" />
+    <location key="#CLI_Interpreters.0.0.2560.1440" x="222" y="-8" />
+    <location key="#com.intellij.refactoring.rename.AutomaticRenamingDialog.0.0.2560.1440" x="1624" y="137" />
+    <size key="FileChooserDialogImpl.0.0.2560.1440" width="428" height="486" />
+    <size key="find.popup.0.0.2560.1440" width="929" height="651" />
+    <size key="CommitChangelistDialog2.0.0.2560.1440" width="779" height="811" />
+    <size key="#com.intellij.fileTypes.FileTypeChooser.0.0.2560.1440" width="635" height="406" />
+    <size key="GridCell.Tab.0.left.0.0.2560.1440" width="1276" height="494" />
+    <size key="GridCell.Tab.0.center.0.0.2560.1440" width="1276" height="494" />
+    <size key="GridCell.Tab.0.right.0.0.2560.1440" width="1276" height="494" />
+    <size key="GridCell.Tab.0.bottom.0.0.2560.1440" width="1276" height="494" />
+    <size key="GridCell.Tab.1.left.0.0.2560.1440" width="1276" height="494" />
+    <size key="GridCell.Tab.1.center.0.0.2560.1440" width="1276" height="494" />
+    <size key="GridCell.Tab.1.right.0.0.2560.1440" width="1276" height="494" />
+    <size key="GridCell.Tab.1.bottom.0.0.2560.1440" width="1276" height="494" />
+    <size key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2.0.0.2560.1440" width="912" height="533" />
+    <size key="SettingsEditor.0.0.2560.1440" width="1056" height="684" />
+    <size key="#Browse_Repositories.0.0.2560.1440" width="828" height="686" />
+    <size key="PhpMappingAdvancedResolveDialog.0.0.2560.1440" width="526" height="410" />
+    <size key="#CLI_Interpreters.0.0.2560.1440" width="828" height="686" />
+    <size key="#com.intellij.refactoring.rename.AutomaticRenamingDialog.0.0.2560.1440" width="577" height="1084" />
+  </component>
+</application>

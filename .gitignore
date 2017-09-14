@@ -19,11 +19,10 @@
 # PHPStorm
 !.PhpStorm2017.2
 !.PhpStorm2017.2/*
-!.PhpStorm2017.2/config
 !.PhpStorm2017.2/config/*
-!.PhpStorm2017.2/config/keymaps
 !.PhpStorm2017.2/config/keymaps/*
 !.PhpStorm2017.2/config/plugins/*
+!.PhpStorm2017.2/config/options/*
 
 
 

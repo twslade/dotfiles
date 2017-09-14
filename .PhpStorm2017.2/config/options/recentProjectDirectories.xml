@@ -1,0 +1,66 @@
+<application>
+  <component name="RecentDirectoryProjectsManager">
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/sites/yeti-product-registration.dev" />
+        <option value="$USER_HOME$/sites/laravel.dev" />
+        <option value="$USER_HOME$/sites/rmb.dev" />
+        <option value="$USER_HOME$/sites/escapadaliving.dev" />
+      </list>
+    </option>
+    <option name="openPaths">
+      <list>
+        <option value="$USER_HOME$/sites/yeti-product-registration.dev" />
+      </list>
+    </option>
+    <option name="lastPath" value="$USER_HOME$/sites/yeti-product-registration.dev" />
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/sites/escapadaliving.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="PS-172.3544.41" />
+              <option name="productionCode" value="PS" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1504037413187" />
+              <option name="buildTimestamp" value="1501660297134" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/sites/laravel.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="PS-172.3544.41" />
+              <option name="productionCode" value="PS" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1504182470636" />
+              <option name="buildTimestamp" value="1501660315948" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/sites/rmb.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="PS-172.3544.41" />
+              <option name="productionCode" value="PS" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1504181315672" />
+              <option name="buildTimestamp" value="1501660315948" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/sites/yeti-product-registration.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="PS-172.3544.41" />
+              <option name="productionCode" value="PS" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1505335881673" />
+              <option name="buildTimestamp" value="1501660278486" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</application>
