@@ -23,6 +23,7 @@
 !.PhpStorm2017.2/config/keymaps/*
 !.PhpStorm2017.2/config/plugins/*
 !.PhpStorm2017.2/config/options/*
+!.PhpStorm2017.2/config/templates/*
 !.PhpStorm2017.2/config/fileTemplates/*
 !.PhpStorm2017.2/config/fileTemplates/code/*
 !.PhpStorm2017.2/config/fileTemplates/includes/*
