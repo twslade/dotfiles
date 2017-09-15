@@ -28,6 +28,7 @@
 !.PhpStorm2017.2/config/fileTemplates/code/*
 !.PhpStorm2017.2/config/fileTemplates/includes/*
 !.PhpStorm2017.2/config/fileTemplates/internal/*
+!.PhpStorm2017.2/config/codestyles/*
 
 .PhpStorm2017.2/config/plugins/availables.xml
 .PhpStorm2017.2/config/plugins/availables.xml.etag
