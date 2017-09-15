@@ -23,6 +23,11 @@
 !.PhpStorm2017.2/config/keymaps/*
 !.PhpStorm2017.2/config/plugins/*
 !.PhpStorm2017.2/config/options/*
+!.PhpStorm2017.2/config/fileTemplates/*
+!.PhpStorm2017.2/config/fileTemplates/code/*
+!.PhpStorm2017.2/config/fileTemplates/includes/*
+!.PhpStorm2017.2/config/fileTemplates/internal/*
+
 .PhpStorm2017.2/config/plugins/availables.xml
 .PhpStorm2017.2/config/plugins/availables.xml.etag
 .PhpStorm2017.2/config/phpstorm.key
@@ -35,6 +40,10 @@
 .PhpStorm2017.2/config/options/statistics.shortcuts.xml
 .PhpStorm2017.2/config/options/statistics.toolbar.clicks.xml
 .PhpStorm2017.2/config/options/window.manager.xml
+.PhpStorm2017.2/config/options/ignore.xml
+.PhpStorm2017.2/config/options/recentProjectDirectories.xml
+.PhpStorm2017.2/config/options/updates.xml
+
 
 #VIM
 !.vimrc
