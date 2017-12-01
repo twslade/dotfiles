@@ -1,0 +1,74 @@
+get-magento-root() {
+  local magentopath=`git rev-parse --show-toplevel`;
+  if [ -d "$magentopath/webroot" ]; then
+    magentopath="$magentopath/webroot"
+  fi
+  echo $magentopath;
+}
+
+magento-uninstall(){
+  if (( ! $# )); then
+    echo "Usage: magento-uninstall <path/to/magento>"
+    return 1
+  fi
+  n98-magerun.phar uninstall --installationFolder="$1" -f
+}
+
+magento-fix-permissions(){
+  git config core.fileMode false
+  sudo chmod 777 $(get-magento-root)/media/ $(get-magento-root)/var/ $(get-magento-root)/app/etc/ -R
+}
+
+magento-clear-cache(){
+  sudo rm -rf $(get-magento-root)/var/cache $(get-magento-root)/var/full_page_cache
+  sudo rm -rf /tmp/magento/var/cache/*
+  sudo rm -rf /tmp/magento/var/full_page_cache/*
+}
+
+magento-clear-session(){
+  sudo rm -rf $(get-magento-root)/var/session
+}
+
+magento-watch-exception(){
+  less +F $(get-magento-root)/var/log/exception.log
+}
+
+magento-watch-system(){
+  less +F $(get-magento-root)/var/log/system.log
+}
+
+magento-watch-all(){
+  tail -f $(get-magento-root)/var/log/*.log /var/log/apache/*error.log
+}
+
+magento-rm-profiler-data(){
+  sudo rm -rf /tmp/cachegrind.out.*
+}
+
+magento-clear-compiled-assets(){
+  rm -rf $(get-magento-root)/media/css/*.css $(get-magento-root)/media/js/*.js
+}
+
+magento-reindex-site(){
+  n98-magerun.phar index:reindex:all
+}
+
+magento-install(){
+  if (( ! $# )); then
+    echo "Usage: magento-install <site-identifier>.dev"
+    return 1
+  fi
+  echo "Installing magento into folder $1.dev...."
+  n98-magerun.phar install --installationFolder="$1.dev" --dbName="$1-db" --dbHost="localhost" --dbUser="$MYSQL_USER" --dbPass="$MYSQL_PASS" --dbPort="3306" --baseUrl="http://$1.dev/" --replaceHtaccessFile="n"
+  add-site $1
+  cd $1.dev && magento-admin-user-create && magento-customer-create
+}
+
+
+magento-admin-user-create(){
+  n98-magerun.phar admin:user:create "$MAGE_USER" t@t.com "$MAGE_PASS" t s
+}
+
+magento-customer-create(){
+  n98-magerun.phar customer:create t@t.com "$MAGE_PASS" t s 1
+}
