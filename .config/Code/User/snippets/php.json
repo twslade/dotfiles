@@ -1,0 +1,32 @@
+{
+	"Constructor": {
+		"prefix": "_constr",
+		"body": [
+			"public function __construct()",
+			"{",
+			"\tparent::__construct();",
+			"}"
+		],
+		"description": "Constructor"
+	},
+	"Function": {
+		"prefix": "_func",
+		"body": [
+			"public function $1()",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Public Function"
+	},
+	"ProtectedFunction": {
+		"prefix": "_prfunc",
+		"body": [
+			"protected function _$1()",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Protected Function"
+	}
+}

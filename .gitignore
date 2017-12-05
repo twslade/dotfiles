@@ -57,6 +57,20 @@
 !.vim/bundle
 !.vim/bundle/*
 
+#Code
+!.config
+!.config/Code
+!.config/Code/*
+!.config/Code/User
+!.config/Code/User/settings.json
+!.config/Code/User/*
+!.config/Code/User/snippets/*
+
+.config/Code/Cookies
+.config/Code/Cookies-journal
+.config/Code/Preferences
+.config/Code/storage.json
+
 # Cheat
 !.cheat
 !.cheat/*
