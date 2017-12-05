@@ -55,6 +55,10 @@ remove-site(){
 }
 
 add-site(){
+	if (( ! $# )); then
+		echo "Usage: magento-uninstall <site-identifier>.dev"
+		return 1
+	fi
 
 	# read template - replace data - write into a new file
 	sudo echo "$VHOST_TEMPLATE" | sed "s/{template}/$1/g" | cat > /etc/apache2/sites-available/$1.conf
@@ -64,11 +68,6 @@ add-site(){
 	sudo service apache2 reload #restart server
 
 	sudo echo 127.0.0.1 $1.dev >> /etc/hosts #create reference
-}
-
-rsync-example(){
-	
-	echo "rsync -uavz -e ssh test-server:/var/www/html/media/ media/ --exclude 'catalog/product/cache/*' --exclude 'tmp/*' --exclude 'js/*' --exclude 'css/*' --exclude 'css_secure/*'"
 }
 
 turn-on-xdebug-cli(){
