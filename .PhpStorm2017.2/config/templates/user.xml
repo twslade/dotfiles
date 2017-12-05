@@ -1,5 +1,5 @@
 <templateSet group="user">
-  <template name="vue" value="&lt;template&gt;&#10;    &lt;div&gt;&lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;    export default {&#10;        data: function(){&#10;            return {};&#10;        },&#10;        methods: {},&#10;        created() {}&#10;    }&#10;&lt;/script&gt;&#10;&#10;&lt;style&gt;&lt;/style&gt;" toReformat="true" toShortenFQNames="true">
+  <template name="vue" value="&lt;template&gt;&#10;    &lt;div&gt;&lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;    export default {&#10;        data: function(){&#10;            return {};&#10;        },&#10;        methods: {},&#10;        created() {}&#10;    }&#10;&lt;/script&gt;&#10;&#10;&lt;style&gt;&lt;/style&gt;" description="" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="true" />
     </context>

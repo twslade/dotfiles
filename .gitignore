@@ -11,9 +11,15 @@
 !.zprezto/runcoms/*
 !.zprezto/custom/*
 .zprezto/custom/secrets
+.zprezto/custom/deploy
 
 #Zprezto - Swap
 .zprezto/runcoms/.zpreztorc.swp
+.zprezto/.gitignore
+.zprezto/.gitmodules
+.zprezto/CONTRIBUTING.md
+.zprezto/LICENSE
+.zprezto/README.md
 
 
 # PHPStorm
@@ -45,7 +51,22 @@
 .PhpStorm2017.2/config/options/ignore.xml
 .PhpStorm2017.2/config/options/recentProjectDirectories.xml
 .PhpStorm2017.2/config/options/updates.xml
-
+.PhpStorm2017.2/config/options/scratches.xml
+.PhpStorm2017.2/config/options/databaseDrivers.xml
+.PhpStorm2017.2/config/options/magicento.xml
+.PhpStorm2017.2/config/options/notifications.xml
+.PhpStorm2017.2/config/options/scratches.xml
+.PhpStorm2017.2/config/options/statistics.actions.xml
+.PhpStorm2017.2/config/options/terminal.xml
+.PhpStorm2017.2/config/options/usageView.xml
+.PhpStorm2017.2/config/plugins/magicento.jar
+.PhpStorm2017.2/config/options/filetypes.xml
+.PhpStorm2017.2/config/options/find.xml
+.PhpStorm2017.2/config/options/project.default.xml
+.PhpStorm2017.2/config/options/runner.layout.xml
+.PhpStorm2017.2/config/options/usage.statistics.xml
+.PhpStorm2017.2/config/options/window.state.xml
+.PhpStorm2017.2/config/plugins/extensions.xml
 
 #VIM
 !.vimrc
@@ -83,4 +104,3 @@
 
 # My global Git excludes file (acts as a global .gitignore)
 !.gitexcludes
-
