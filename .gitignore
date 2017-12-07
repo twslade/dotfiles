@@ -91,6 +91,7 @@
 .config/Code/Cookies-journal
 .config/Code/Preferences
 .config/Code/storage.json
+.config/Code/machineid
 
 # Cheat
 !.cheat
