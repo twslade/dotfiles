@@ -29,6 +29,10 @@ magento-clear-session(){
   sudo rm -rf $(get-magento-root)/var/session
 }
 
+magento-clear-logs(){
+  find $(get-magento-root)/var/log/ -iname "*.log" -print0 | xargs -0 rm
+}
+
 magento-watch-exception(){
   less +F $(get-magento-root)/var/log/exception.log
 }
