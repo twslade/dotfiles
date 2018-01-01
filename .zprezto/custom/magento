@@ -1,9 +1,6 @@
 get-magento-root() {
   local magentopath=`git rev-parse --show-toplevel`;
-  if [ -d "$magentopath/webroot" ]; then
-    magentopath="$magentopath/webroot"
-  fi
-  echo $magentopath;
+  echo $(find $magentopath -name "Mage.php" | sed s/app\\\/Mage.php//)
 }
 
 magento-uninstall(){
@@ -16,13 +13,13 @@ magento-uninstall(){
 
 magento-fix-permissions(){
   git config core.fileMode false
-  sudo chmod 777 $(get-magento-root)/media/ $(get-magento-root)/var/ $(get-magento-root)/app/etc/ -R
+  chmod 777 $(get-magento-root)/media/ $(get-magento-root)/var/ $(get-magento-root)/app/etc/ -R
 }
 
 magento-clear-cache(){
-  sudo rm -rf $(get-magento-root)/var/cache $(get-magento-root)/var/full_page_cache
-  sudo rm -rf /tmp/magento/var/cache/*
-  sudo rm -rf /tmp/magento/var/full_page_cache/*
+  rm -rf $(get-magento-root)/var/cache $(get-magento-root)/var/full_page_cache
+  rm -rf /tmp/magento/var/cache/*
+  rm -rf /tmp/magento/var/full_page_cache/*
 }
 
 magento-clear-session(){
@@ -75,4 +72,17 @@ magento-admin-user-create(){
 
 magento-customer-create(){
   n98-magerun.phar customer:create t@t.com "$MAGE_PASS" t s 1
+}
+
+apache-tail-error-notify(){
+  tail -f /var/log/apache2/error.log | grep --line-buffered error | while read line; do notify-send "Exception" "$line"; done
+
+}
+
+magento-tail-system-notify(){
+   tail -n0 -f $(get-magento-root)/var/log/system.log | while read line; do notify-send "System Message" "$line"; done
+}
+
+magento-tail-exception-notify(){
+  tail -f $(get-magento-root)/var/log/exception.log | grep --line-buffered exception | while read line; do notify-send "Exception" "$line"; done
 }
