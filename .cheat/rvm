@@ -1,0 +1,2 @@
+# Add rvm to current context. Ruby version should then be checked
+source $HOME/.rvm/scripts/rvm
