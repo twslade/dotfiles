@@ -8,5 +8,19 @@
     "editor.tabCompletion": true,
     "terminal.integrated.fontFamily": "Fira Mono for Powerline",
     "terminal.integrated.fontSize": 16,
-    "window.openFilesInNewWindow": "on"
+    "window.openFilesInNewWindow": "on",
+    "emmet.triggerExpansionOnTab": true,
+    "files.associations": {
+        "*.phtml": "php"
+    },
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressUpdateNotice": true,
+        "suppressWelcomeNotice": false
+    }
 }
