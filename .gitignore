@@ -67,6 +67,18 @@
 .PhpStorm2017.2/config/options/usage.statistics.xml
 .PhpStorm2017.2/config/options/window.state.xml
 .PhpStorm2017.2/config/plugins/extensions.xml
+.PhpStorm2017.2/config/options/diff.xml
+.PhpStorm2017.2/config/options/duplocatorSettings.xml
+.PhpStorm2017.2/config/templates/Zen XSL.xml
+.PhpStorm2017.2/config/templates/Zen HTML.xml
+.PhpStorm2017.2/config/templates/Zen CSS.xml
+.PhpStorm2017.2/config/templates/xsl.xml
+.PhpStorm2017.2/config/templates/Angular.xml
+.PhpStorm2017.2/config/templates/AngularJS .xml
+.PhpStorm2017.2/config/templates/html_xml.xml
+.PhpStorm2017.2/config/templates/JavaScript.xml
+.PhpStorm2017.2/config/templates/SQL.xml
+.PhpStorm2017.2/config/templates/Twig.xml
 
 #VIM
 !.vimrc
