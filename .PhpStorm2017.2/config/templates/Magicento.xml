@@ -1,0 +1,37 @@
+<templateSet group="Magicento">
+  <template name="editact" value="$id  = $this-&gt;getRequest()-&gt;getParam('id');&#10;    $model = Mage::getModel('$MODELFACTORY$');&#10;&#10;    if ($id) {&#10;        $model-&gt;load($id);&#10;        if (!$model-&gt;getId()) {&#10;            $this-&gt;_getSession()-&gt;addError(&#10;                Mage::helper('$HELPERFACTORY$')-&gt;__('This $MODELTITLE$ no longer exists.')&#10;            );&#10;            $this-&gt;_redirect('*/*/');&#10;            return;&#10;        }&#10;    }&#10;&#10;    $data = $this-&gt;_getSession()-&gt;getFormData(true);&#10;    if (!empty($data)) {&#10;        $model-&gt;setData($data);&#10;    }&#10;&#10;    Mage::register('$REGISTRYKEY$', $model);&#10;&#10;    $this-&gt;loadLayout();&#10;    $this-&gt;_addContent($this-&gt;getLayout()-&gt;createBlock('$FORMBLOCKFACTORY$'));&#10;    $this-&gt;renderLayout();" description="form edit action" toReformat="true" toShortenFQNames="true">
+    <variable name="MODELFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HELPERFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODELTITLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="REGISTRYKEY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="FORMBLOCKFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="saveact" value="$redirectBack = $this-&gt;getRequest()-&gt;getParam('back', false);&#10;if ($data = $this-&gt;getRequest()-&gt;getPost()) {&#10;&#10;    $id = $this-&gt;getRequest()-&gt;getParam('id');&#10;    $model = Mage::getModel('$MODELFACTORY$');&#10;    if($id){&#10;        $model-&gt;load($id);&#10;        if( ! $model-&gt;getId()){&#10;            $this-&gt;_getSession()-&gt;addError(&#10;                Mage::helper('$HELPERFACTORY$')-&gt;__('This $MODELTITLE$ no longer exists.')&#10;            );&#10;            $this-&gt;_redirect('*/*/$GRIDACTION$');&#10;            return;&#10;        }&#10;    }&#10;&#10;    // save model&#10;    try {&#10;        $model-&gt;addData($data);&#10;        $this-&gt;_getSession()-&gt;setFormData($data);&#10;        $model-&gt;save();&#10;        $this-&gt;_getSession()-&gt;setFormData(false);&#10;        $this-&gt;_getSession()-&gt;addSuccess(&#10;            Mage::helper('$HELPERFACTORY$')-&gt;__('The $MODELTITLE$ has been saved.')&#10;        );&#10;    } catch (Mage_Core_Exception $e) {&#10;        $this-&gt;_getSession()-&gt;addError($e-&gt;getMessage());&#10;        $redirectBack = true;&#10;    } catch (Exception $e) {&#10;        $this-&gt;_getSession()-&gt;addError(Mage::helper('$HELPERFACTORY$')-&gt;__('Unable to save the $MODELTITLE$.'));&#10;        $redirectBack = true;&#10;        Mage::logException($e);&#10;    }&#10;&#10;    if ($redirectBack) {&#10;        $this-&gt;_redirect('*/*/$EDITACTION$', array('id' =&gt; $model-&gt;getId()));&#10;        return;&#10;    }&#10;}&#10;$this-&gt;_redirect('*/*/$GRIDACTION$');" description="Save Action" toReformat="false" toShortenFQNames="true">
+    <variable name="MODELFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HELPERFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODELTITLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="GRIDACTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="EDITACTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="deleteact" value="if ($id = $this-&gt;getRequest()-&gt;getParam('id'))&#10;{&#10;    try {&#10;        // init model and delete&#10;        $model = Mage::getModel('$MODELFACTORY$');&#10;        $model-&gt;load($id);&#10;        if( ! $model-&gt;getId()){&#10;            Mage::throwException(Mage::helper('$HELPERFACTORY$')-&gt;__('Unable to find a $MODELTITLE$ to delete.'));&#10;        }&#10;        $model-&gt;delete();&#10;        // display success message&#10;        $this-&gt;_getSession()-&gt;addSuccess(&#10;            Mage::helper('$HELPERFACTORY$')-&gt;__('The $MODELTITLE$ has been deleted.')&#10;        );&#10;        // go to grid&#10;        $this-&gt;_redirect('*/*/$GRIDACTION$');&#10;        return;&#10;    } catch (Mage_Core_Exception $e) {&#10;        $this-&gt;_getSession()-&gt;addError($e-&gt;getMessage());&#10;    } catch (Exception $e) {&#10;        $this-&gt;_getSession()-&gt;addError(&#10;            Mage::helper('$HELPERFACTORY$')-&gt;__('An error occurred while deleting $MODELTITLE$ data. Please review log and try again.')&#10;        );&#10;        Mage::logException($e);&#10;    }&#10;    // redirect to edit form&#10;    $this-&gt;_redirect('*/*/$EDITACTION$', array('id' =&gt; $id));&#10;    return;&#10;}&#10;// display error message&#10;$this-&gt;_getSession()-&gt;addError(&#10;    Mage::helper('$HELPERFACTORY$')-&gt;__('Unable to find a $MODELTITLE$ to delete.')&#10;);&#10;// go to grid&#10;$this-&gt;_redirect('*/*/$GRIDACTION$');" description="Delete Action" toReformat="false" toShortenFQNames="true">
+    <variable name="MODELFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HELPERFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODELTITLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="GRIDACTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="EDITACTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="gridact" value="$this-&gt;loadLayout();&#10;$this-&gt;_addContent($this-&gt;getLayout()-&gt;createBlock('$GRIDBLOCKFACTORY$'));&#10;$this-&gt;renderLayout();" description="Grid Action" toReformat="false" toShortenFQNames="true">
+    <variable name="GRIDBLOCKFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="massdeleteact" value="$ids = $this-&gt;getRequest()-&gt;getParam('ids');&#10;if (!is_array($ids)) {&#10;    $this-&gt;_getSession()-&gt;addError($this-&gt;__('Please select $MODELTITLE$(s).'));&#10;} else {&#10;    try {&#10;        foreach ($ids as $id) {&#10;            $model = Mage::getSingleton('$MODELFACTORY$')-&gt;load($id);&#10;            $model-&gt;delete();&#10;        }&#10;&#10;        $this-&gt;_getSession()-&gt;addSuccess(&#10;            $this-&gt;__('Total of %d record(s) have been deleted.', count($ids))&#10;        );&#10;    } catch (Mage_Core_Exception $e) {&#10;        $this-&gt;_getSession()-&gt;addError($e-&gt;getMessage());&#10;    } catch (Exception $e) {&#10;        $this-&gt;_getSession()-&gt;addError(&#10;            Mage::helper('$HELPERFACTORY$')-&gt;__('An error occurred while mass deleting items. Please review log and try again.')&#10;        );&#10;        Mage::logException($e);&#10;        return;&#10;    }&#10;}&#10;$this-&gt;_redirect('*/*/$GRIDACTION$');" description="Mass Delete Action" toReformat="false" toShortenFQNames="true">
+    <variable name="MODELTITLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODELFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HELPERFACTORY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="GRIDACTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+</templateSet>
