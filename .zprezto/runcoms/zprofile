@@ -67,3 +67,5 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 SITES_DIR=$HOME/sites/
+
+export JAVA_HOME=/usr/lib/jvm/java-9-oracle/
