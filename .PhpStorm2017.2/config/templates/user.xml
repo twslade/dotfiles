@@ -4,4 +4,10 @@
       <option name="HTML_TEXT" value="true" />
     </context>
   </template>
+  <template name="&lt;abbreviation&gt;" value="for ($i = 1; $i &lt;= 10; $i++) {&#10;            echo $i;&#10;        }" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP Expression" value="true" />
+      <option name="PHP Statement" value="true" />
+    </context>
+  </template>
 </templateSet>
