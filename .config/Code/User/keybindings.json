@@ -9,5 +9,9 @@
         "key": "shift+f10",
         "command": "-editor.action.showContextMenu",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "git.stageSelectedRanges"
     }
 ]
