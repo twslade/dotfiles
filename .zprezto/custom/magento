@@ -18,8 +18,8 @@ magento-fix-permissions(){
 
 magento-clear-cache(){
   rm -rf $(get-magento-root)/var/cache $(get-magento-root)/var/full_page_cache
-  rm -rf /tmp/magento/var/cache/*
-  rm -rf /tmp/magento/var/full_page_cache/*
+  rm -rf /tmp/magento/var/cache/
+  rm -rf /tmp/magento/var/full_page_cache/
 }
 
 magento-clear-session(){
