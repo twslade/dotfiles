@@ -6,20 +6,12 @@
 .*.swp
 
 # Zprezto
-!.zprezto
-!.zprezto/*
-!.zprezto/runcoms/*
-!.zprezto/custom/*
-.zprezto/custom/secrets
-.zprezto/custom/deploy
-
-#Zprezto - Swap
-.zprezto/runcoms/.zpreztorc.swp
-.zprezto/.gitignore
-.zprezto/.gitmodules
-.zprezto/CONTRIBUTING.md
-.zprezto/LICENSE
-.zprezto/README.md
+!.zshrc
+!.zsettings
+!.zsettings/*
+!.zcustom
+!.zcustom/*
+.zcustom/custom/secrets
 
 
 # PHPStorm
