@@ -1,7 +1,0 @@
-<templateSet group="Vue">
-  <template name="vue" value="&lt;template&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;export default {&#10;    props: [],&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style&gt;&lt;/style&gt;" description="" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="JAVA_SCRIPT" value="true" />
-    </context>
-  </template>
-</templateSet>
