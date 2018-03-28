@@ -1,8 +1,8 @@
 VHOST_TEMPLATE="
 <VirtualHost *:80>
-    ServerName  {template}.dev
-	ServerAlias {template}.dev
-	DocumentRoot $SITES_DIR{template}.dev
+	ServerName  {template}.local
+	ServerAlias {template}.local
+	DocumentRoot $SITES_DIR{template}.local
 </VirtualHost>
 "
 
@@ -69,7 +69,7 @@ emailAddress=test@example.com
 
 add-site(){
 	if (( ! $# )); then
-		echo "Usage: magento-uninstall <site-identifier>.dev"
+		echo "Usage: magento-uninstall <site-identifier>.local"
 		return 1
 	fi
 
@@ -80,7 +80,7 @@ add-site(){
 
 	sudo service apache2 reload #restart server
 
-	sudo echo 127.0.0.1 $1.dev >> /etc/hosts #create reference
+	sudo echo 127.0.0.1 $1.local >> /etc/hosts #create reference
 }
 
 turn-on-xdebug-cli(){
