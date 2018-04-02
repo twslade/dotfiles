@@ -1,10 +1,6 @@
 source <(antibody init)
-antibody bundle < ~/.zplugins
-antibody bundle mafredri/zsh-async
-antibody bundle sindresorhus/pure
-antibody bundle zsh-users/zsh-autosuggestions
-antibody bundle zsh-users/zsh-history-substring-search
-antibody bundle jimhester/per-directory-history
+antibody bundle < $HOME/.zplugins/defaults.txt
+antibody bundle < $HOME/.zplugins/oh-my-zsh.txt
 
 #Include all files that end with .zsh in home directory
 config_files=(${ZDOTDIR:-$HOME}/.zcustom/*)
@@ -19,5 +15,9 @@ for file in ${${settings_files}}
 do
   source $file
 done
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

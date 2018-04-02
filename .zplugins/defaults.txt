@@ -1,0 +1,7 @@
+mafredri/zsh-async
+sindresorhus/pure
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+jimhester/per-directory-history
+marzocchi/zsh-notify
+urbainvaes/fzf-marks
