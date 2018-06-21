@@ -1,26 +1,61 @@
 {
-    "workbench.colorTheme": "Slime",
     "workbench.statusBar.visible": false,
     "workbench.startupEditor": "none",
-    "explorer.openEditors.visible": 0,
     "workbench.activityBar.visible": false,
+    "explorer.openEditors.visible": 0,
     "editor.minimap.enabled": false,
     "editor.tabCompletion": true,
-    "terminal.integrated.fontFamily": "Fira Mono for Powerline",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "Operator Mono",
     "terminal.integrated.fontSize": 16,
     "window.openFilesInNewWindow": "on",
-    "emmet.triggerExpansionOnTab": true,
+    "window.zoomLevel": 1,
     "files.associations": {
         "*.phtml": "php"
     },
+    "eslint.nodePath": "/usr/local/bin/node",
+    "eslint.packageManager": "yarn",
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true,
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "[vue]": {
+        "editor.formatOnSave": false
+    },
+    "vetur.format.defaultFormatter.js": "prettier",
+    "vetur.format.defaultFormatter.css": "prettier",
+    "eslint.validate": [
+        "javascriptreact",
+        {
+            "language": "vue",
+            "autoFix": true
+        },
+        {
+            "language": "javascript",
+            "autoFix": true
+        },
+        {
+            "language": "html",
+            "autoFix": true
+        }
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "vscode-icons",
+    "emmet.includeLanguages": {
+        "vue-html": "html",
+        "vue": "html"
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "path-intellisense.mappings": {
+        "@": "${wordspaceRoot}/src"
+    },
+    "javascript.preferences.importModuleSpecifier": "relative",
     "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressUpdateNotice": true,
-        "suppressWelcomeNotice": false
-    }
+        "suppressShowKeyBindingsNotice": true
+    },
+    "vsicons.dontShowNewVersionMessage": true
 }

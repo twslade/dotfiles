@@ -13,5 +13,25 @@
     {
         "key": "ctrl+shift+s",
         "command": "git.stageSelectedRanges"
+    },
+    {
+        "key": "shift+enter",
+        "command": "extension.jumpy-word",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "Escape",
+        "command": "extension.jumpy-exit",
+        "when": "editorTextFocus && jumpy.isJumpyMode"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.view.scm",
+        "when": "gitlens:enabled && gitlens:keymap == 'chorded'"
+    },
+    {
+        "key": "ctrl+shift+g g",
+        "command": "-workbench.view.scm",
+        "when": "gitlens:enabled && gitlens:keymap == 'chorded'"
     }
 ]
