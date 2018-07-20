@@ -205,3 +205,6 @@
 	sl = stash list
 	sa = stash apply
 	ss = stash save
+[credential]
+	helper = "!aws codecommit credential-helper $@"
+	UseHttpPath = true
