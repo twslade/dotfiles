@@ -1,3 +1,4 @@
+compdef _gnu_generic mysql-import-sql-file
 
 my-mysql(){
 	mysql -u "$MYSQL_USER" -p"$MYSQL_PASS"
