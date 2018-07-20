@@ -13,65 +13,6 @@
 !.zcustom/*
 .zcustom/custom/secrets
 
-
-# PHPStorm
-!.PhpStorm2017.2
-!.PhpStorm2017.2/*
-!.PhpStorm2017.2/config/*
-!.PhpStorm2017.2/config/keymaps/*
-!.PhpStorm2017.2/config/plugins/*
-!.PhpStorm2017.2/config/options/*
-!.PhpStorm2017.2/config/templates/*
-!.PhpStorm2017.2/config/fileTemplates/*
-!.PhpStorm2017.2/config/fileTemplates/code/*
-!.PhpStorm2017.2/config/fileTemplates/includes/*
-!.PhpStorm2017.2/config/fileTemplates/internal/*
-!.PhpStorm2017.2/config/codestyles/*
-
-.PhpStorm2017.2/config/plugins/availables.xml
-.PhpStorm2017.2/config/plugins/availables.xml.etag
-.PhpStorm2017.2/config/phpstorm.key
-.PhpStorm2017.2/config/port
-.PhpStorm2017.2/config/port.lock
-.PhpStorm2017.2/config/options/dimensions.xml
-.PhpStorm2017.2/config/options/feature.usage.statistics.xml
-.PhpStorm2017.2/config/options/options.xml
-.PhpStorm2017.2/config/options/statistics.application.usages.xml
-.PhpStorm2017.2/config/options/statistics.shortcuts.xml
-.PhpStorm2017.2/config/options/statistics.toolbar.clicks.xml
-.PhpStorm2017.2/config/options/window.manager.xml
-.PhpStorm2017.2/config/options/ignore.xml
-.PhpStorm2017.2/config/options/recentProjectDirectories.xml
-.PhpStorm2017.2/config/options/updates.xml
-.PhpStorm2017.2/config/options/scratches.xml
-.PhpStorm2017.2/config/options/databaseDrivers.xml
-.PhpStorm2017.2/config/options/magicento.xml
-.PhpStorm2017.2/config/options/notifications.xml
-.PhpStorm2017.2/config/options/scratches.xml
-.PhpStorm2017.2/config/options/statistics.actions.xml
-.PhpStorm2017.2/config/options/terminal.xml
-.PhpStorm2017.2/config/options/usageView.xml
-.PhpStorm2017.2/config/plugins/magicento.jar
-.PhpStorm2017.2/config/options/filetypes.xml
-.PhpStorm2017.2/config/options/find.xml
-.PhpStorm2017.2/config/options/project.default.xml
-.PhpStorm2017.2/config/options/runner.layout.xml
-.PhpStorm2017.2/config/options/usage.statistics.xml
-.PhpStorm2017.2/config/options/window.state.xml
-.PhpStorm2017.2/config/plugins/extensions.xml
-.PhpStorm2017.2/config/options/diff.xml
-.PhpStorm2017.2/config/options/duplocatorSettings.xml
-.PhpStorm2017.2/config/templates/Zen XSL.xml
-.PhpStorm2017.2/config/templates/Zen HTML.xml
-.PhpStorm2017.2/config/templates/Zen CSS.xml
-.PhpStorm2017.2/config/templates/xsl.xml
-.PhpStorm2017.2/config/templates/Angular.xml
-.PhpStorm2017.2/config/templates/AngularJS .xml
-.PhpStorm2017.2/config/templates/html_xml.xml
-.PhpStorm2017.2/config/templates/JavaScript.xml
-.PhpStorm2017.2/config/templates/SQL.xml
-.PhpStorm2017.2/config/templates/Twig.xml
-
 #VIM
 !.vimrc
 !.vim
