@@ -86,3 +86,13 @@ magento-tail-system-notify(){
 magento-tail-exception-notify(){
   tail -f $(get-magento-root)/var/log/exception.log | grep --line-buffered exception | while read line; do notify-send "Exception" "$line"; done
 }
+
+magento-optimize-media(){
+  find . -iname "*.jpg" -exec jpegoptim -m70 --strip-all -o -t {} \;
+  find . -iname "*.png" | while read png;
+  do
+    echo "crushing $png"
+    pngcrush -reduce "$png" /tmp/temp.png
+    mv -f /tmp/temp.png "$png"
+  done;
+}
