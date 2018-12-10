@@ -42,7 +42,7 @@ surf-bogue(){
 
 
 surf-st-augustine(){
-	vlc $(base64decode "$base")$(base64decode "ZWMtc2FpbnRhdWd1c3RjYW0vY2h1bmtsaXN0Lm0zdTgK")
+	vlc $(base64decode "$base")$(base64decode "ZWMtc3RhdWd1c3RpbmUvY2h1bmtsaXN0Lm0zdTgK")
 }
 
 surf-new-smyrna(){
