@@ -46,7 +46,7 @@ surf-st-augustine(){
 }
 
 surf-new-smyrna(){
-	vlc $(base64decode "$base")$(base64decode "ZWMtbmV3c215Y2FtL2NodW5rbGlzdC5tM3U4Cg==")
+	vlc $(base64decode "$base")$(base64decode "ZWMtbmV3c215L2NodW5rbGlzdC5tM3U4Cg==")
 }
 
 surf-sebastian-inlet(){
