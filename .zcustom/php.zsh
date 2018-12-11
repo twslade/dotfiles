@@ -35,3 +35,7 @@ php-disable-ioncube(){
 	sudo rm /etc/php/5.6/apache2/config.d/00-ioncube.ini
 	sudo service apache2 restart
 }
+
+php-mail-listener(){
+	mailhog
+}
