@@ -50,7 +50,9 @@ surf-st-augustine(){
 surf-new-smyrna(){
 	vlc $(base64decode "$base")$(base64decode "ZWMtbmV3c215L2NodW5rbGlzdC5tM3U4Cg==")
 }
-
+surf-flagler(){
+	vlc $(base64decode "$base")$(base64decode "ZWMtZmxhZ2xlcmJlYWNoL2NodW5rbGlzdC5tM3U4Cg==")
+}
 surf-sebastian-inlet(){
 	vlc $(base64decode "$base")$(base64decode "ZWMtc2ViYXN0aWFuaW5sZXQvY2h1bmtsaXN0Lm0zdTgK")
 }
