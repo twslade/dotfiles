@@ -39,7 +39,9 @@ surf-s-turns(){
 surf-bogue(){
 	vlc $(base64decode "$base")$(base64decode "ZWMtYm9ndWVpbmxldHBpZXIvY2h1bmtsaXN0Lm0zdTgK")
 }
-
+surf-st-augustine-a-st(){
+	vlc $(base64decode "$base")$(base64decode "ZWMtc2FpbnRhdWd1c3QvY2h1bmtsaXN0Lm0zdTgK")
+}
 
 surf-st-augustine(){
 	vlc $(base64decode "$base")$(base64decode "ZWMtc3RhdWd1c3RpbmUvY2h1bmtsaXN0Lm0zdTgK")
