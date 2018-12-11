@@ -39,16 +39,20 @@ surf-s-turns(){
 surf-bogue(){
 	vlc $(base64decode "$base")$(base64decode "ZWMtYm9ndWVpbmxldHBpZXIvY2h1bmtsaXN0Lm0zdTgK")
 }
-
+surf-st-augustine-a-st(){
+	vlc $(base64decode "$base")$(base64decode "ZWMtc2FpbnRhdWd1c3QvY2h1bmtsaXN0Lm0zdTgK")
+}
 
 surf-st-augustine(){
 	vlc $(base64decode "$base")$(base64decode "ZWMtc3RhdWd1c3RpbmUvY2h1bmtsaXN0Lm0zdTgK")
 }
 
 surf-new-smyrna(){
-	vlc $(base64decode "$base")$(base64decode "ZWMtbmV3c215Y2FtL2NodW5rbGlzdC5tM3U4Cg==")
+	vlc $(base64decode "$base")$(base64decode "ZWMtbmV3c215L2NodW5rbGlzdC5tM3U4Cg==")
 }
-
+surf-flagler(){
+	vlc $(base64decode "$base")$(base64decode "ZWMtZmxhZ2xlcmJlYWNoL2NodW5rbGlzdC5tM3U4Cg==")
+}
 surf-sebastian-inlet(){
 	vlc $(base64decode "$base")$(base64decode "ZWMtc2ViYXN0aWFuaW5sZXQvY2h1bmtsaXN0Lm0zdTgK")
 }
