@@ -1,6 +1,5 @@
 source <(antibody init)
 antibody bundle < $HOME/.zplugins/defaults.txt
-antibody bundle < $HOME/.zplugins/oh-my-zsh.txt
 
 #Include all files that end with .zsh in home directory
 config_files=(${ZDOTDIR:-$HOME}/.zcustom/*)
