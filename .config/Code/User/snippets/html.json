@@ -1,9 +1,0 @@
-{
-	"Translation": {
-		"prefix": "_translate",
-		"body": [
-			"<?php echo \\$this->__('${TM_SELECTED_TEXT}') ?>"
-		],
-		"description": "Translate"
-	}
-}
