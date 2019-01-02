@@ -9,6 +9,10 @@ if [ -d "$HOME/.bin" ] ; then
 	export PATH="$HOME/.bin:$PATH"
 fi
 
+if [ -d "$HOME/go/bin" ] ; then
+	export PATH="$HOME/go/bin:$PATH"
+fi
+
 # AWS Cli Helper
 if [ -f "$HOME/.local/bin/aws_zsh_completer.sh" ] ; then
 	source $HOME/.local/bin/aws_zsh_completer.sh
