@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# set -x
+set -eo pipefail
+
 base64decode(){
 	echo $1 | base64 -d
 }
@@ -13,66 +14,79 @@ base64encode(){
 	echo $1 | base64
 }
 
+build(){
+	echo $(getBase)$(base64decode $1)
+}
+
 surf-n-washout(){
-	vlc $(getBase)$(base64decode "ZWMtd2FzaG91dC9jaHVua2xpc3QubTN1OAo=")
+	vlc $(build "ZWMtd2FzaG91dC9jaHVua2xpc3QubTN1OAo=")
 }
 
 surf-s-pier(){
-	vlc $(getBase)$(base64decode "ZWMtZm9sbHlwaWVyc291dGgvY2h1bmtsaXN0Lm0zdTgK")
+	vlc $(build "ZWMtZm9sbHlwaWVyc291dGgvY2h1bmtsaXN0Lm0zdTgK")
 }
 
 surf-n-pier(){
-	vlc $(getBase)$(base64decode "ZWMtZm9sbHlwaWVybm9ydGgvY2h1bmtsaXN0Lm0zdTgK")
+	vlc $(build "ZWMtZm9sbHlwaWVybm9ydGgvY2h1bmtsaXN0Lm0zdTgK")
 }
 
 surf-s-washout() {
-	vlc $(getBase)$(base64decode "ZWMtd2FzaG91dHNvdXRoY2FtL2NodW5rbGlzdC5tM3U4Cg==")
+	vlc $(build "ZWMtd2FzaG91dHNvdXRoY2FtL2NodW5rbGlzdC5tM3U4Cg==")
 }
 
 surf-frisco(){
-	vlc $(getBase)$(base64decode "ZWMtZnJpc2NvcGllci9jaHVua2xpc3QubTN1OAo=")
+	vlc $(build "ZWMtZnJpc2NvcGllci9jaHVua2xpc3QubTN1OAo=")
 }
 
 surf-hatteras(){
-	vlc $(getBase)$(base64decode "ZWMtY2FwZWhhdHRlcmFzL2NodW5rbGlzdC5tM3U4Cg==")
+	vlc $(build "ZWMtY2FwZWhhdHRlcmFzL2NodW5rbGlzdC5tM3U4Cg==")
 }
 
 surf-s-turns(){
-	vlc $(getBase)$(base64decode "ZWMtcm9kYW50aGUvY2h1bmtsaXN0Lm0zdTgK")
+	vlc $(build "ZWMtcm9kYW50aGUvY2h1bmtsaXN0Lm0zdTgK")
 }
 
 surf-bogue(){
-	vlc $(getBase)$(base64decode "ZWMtYm9ndWVpbmxldHBpZXIvY2h1bmtsaXN0Lm0zdTgK")
+	vlc $(build "ZWMtYm9ndWVpbmxldHBpZXIvY2h1bmtsaXN0Lm0zdTgK")
 }
 surf-st-augustine-a-st(){
-	vlc $(getBase)$(base64decode "ZWMtc2FpbnRhdWd1c3QvY2h1bmtsaXN0Lm0zdTgK")
+	vlc $(build "ZWMtc2FpbnRhdWd1c3QvY2h1bmtsaXN0Lm0zdTgK")
 }
 
 surf-st-augustine(){
-	vlc $(getBase)$(base64decode "ZWMtc3RhdWd1c3RpbmUvY2h1bmtsaXN0Lm0zdTgK")
+	vlc $(build "ZWMtc3RhdWd1c3RpbmUvY2h1bmtsaXN0Lm0zdTgK")
 }
 
 surf-new-smyrna(){
-	vlc $(getBase)$(base64decode "ZWMtbmV3c215L2NodW5rbGlzdC5tM3U4Cg==")
+	vlc $(build "ZWMtbmV3c215L2NodW5rbGlzdC5tM3U4Cg==")
 }
 surf-flagler(){
-	vlc $(getBase)$(base64decode "ZWMtZmxhZ2xlcmJlYWNoL2NodW5rbGlzdC5tM3U4Cg==")
+	vlc $(build "ZWMtZmxhZ2xlcmJlYWNoL2NodW5rbGlzdC5tM3U4Cg==")
 }
 surf-sebastian-inlet(){
-	vlc $(getBase)$(base64decode "ZWMtc2ViYXN0aWFuaW5sZXQvY2h1bmtsaXN0Lm0zdTgK")
+	vlc $(build "ZWMtc2ViYXN0aWFuaW5sZXQvY2h1bmtsaXN0Lm0zdTgK")
 }
 
 surf-jacksonville(){
-	vlc $(getBase)$(base64decode "ZWMtamFja3NvbnZpbGxlcGllci9jaHVua2xpc3QubTN1OAo=")
+	vlc $(build "ZWMtamFja3NvbnZpbGxlcGllci9jaHVua2xpc3QubTN1OAo=")
 }
 
 surf-jacksonville-18(){
-	vlc $(getBase)$(base64decode "ZWMtamFja3NvbnZpbGxlL2NodW5rbGlzdC5tM3U4Cg==")
+	vlc $(build "ZWMtamFja3NvbnZpbGxlL2NodW5rbGlzdC5tM3U4Cg==")
 }
 
-if declare -f $1 > /dev/null;
-then
-	$1
-else
-	echo "Break not defined";
-fi
+help(){
+	typeset -f | grep surf | awk '/ \(\) $/ {print $1}'
+}
+
+main(){
+	if declare -f "$1" > /dev/null;
+	then
+		$1
+	else
+		echo "Break not defined. Please choose on the following:";
+		help
+	fi
+}
+
+main "$@"
