@@ -1,7 +1,11 @@
 export SITES_DIR="$HOME/sites"
-export EDITOR=vim
-if [ -d "$HOME/bin" ] ; then
-	export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export EDITOR="vim"
+export TERMINAL="xfce4-terminal"
+export BROWSER="google-chrome"
+
+
+if [ -d "$HOME/.bin" ] ; then
+	export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
 fi
 
 if [ -f "$HOME/.local/bin/aws_zsh_completer.sh" ] ; then
