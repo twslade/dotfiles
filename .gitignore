@@ -10,6 +10,10 @@
 !.config/*
 !.config/i3/*
 !.config/lf/*
+.config/Trolltech.conf
+.config/mimeapps.list
+.config/user-dirs.dirs
+.config/user-dirs.locale
 
 # Bash It Custom https://github.com/Bash-it/bash-it#custom-scripts-aliases-themes-and-functions
 !.custom
