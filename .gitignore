@@ -5,7 +5,13 @@
 # when a shell is a login shell).
 .*.swp
 
-# Zprezto
+# i3
+!.config
+!.config/*
+!.config/i3/*
+
+
+# Zsh
 !.zshrc
 !.zsettings
 !.zsettings/*
