@@ -13,6 +13,10 @@
 !.zcustom/*
 .zcustom/custom/secrets
 
+#BIN
+!.bin
+!.bin/*
+
 #VIM
 !.vimrc
 !.vim
