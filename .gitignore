@@ -11,6 +11,10 @@
 !.config/i3/*
 !.config/lf/*
 
+# Bash It Custom https://github.com/Bash-it/bash-it#custom-scripts-aliases-themes-and-functions
+!.custom
+!.custom/*
+
 
 # Zsh
 !.zshrc
