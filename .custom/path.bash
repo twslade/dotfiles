@@ -4,18 +4,12 @@ export TERMINAL="xfce4-terminal"
 export BROWSER="google-chrome"
 
 
-
 if [ -d "$HOME/.bin" ] ; then
 	export PATH="$HOME/.bin:$PATH"
 fi
 
 if [ -d "$HOME/go/bin" ] ; then
 	export PATH="$HOME/go/bin:$PATH"
-fi
-
-# AWS Cli Helper
-if [ -f "$HOME/.local/bin/aws_zsh_completer.sh" ] ; then
-	source $HOME/.local/bin/aws_zsh_completer.sh
 fi
 
 # Java
@@ -32,7 +26,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Fuzzy Finder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Python Virtual Env
 [ -f ~/.python-virtual-envs/python3.5/bin/activate ] && source ~/.python-virtual-envs/python3.5/bin/activate
