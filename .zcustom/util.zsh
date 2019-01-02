@@ -1,5 +1,9 @@
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
+ssh-search(){
+	grep -A 3 $1 $HOME/.ssh/config
+}
+
 start(){
 	sh $HOME/.screenlayout/default.sh
 	i3-msg restart
