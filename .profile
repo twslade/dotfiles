@@ -1,5 +1,6 @@
 export EDITOR="vim"
-export TERMINAL="xfce4-terminal"
+export TERMINAL="st"
+export TERM="st"
 export BROWSER="google-chrome"
 
 export MYSQL_USER="$(echo "cm9vdAo=" | base64 -d)"
