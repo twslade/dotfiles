@@ -27,7 +27,7 @@ exec --no-startup-id xcompmgr
 
 # start a terminal
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $term --working-directory $(samedir)
+bindsym $mod+Shift+Return exec samedir
 # kill focused window
 bindsym $mod+Shift+q kill
 
