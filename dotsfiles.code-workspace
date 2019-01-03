@@ -1,0 +1,54 @@
+{
+	"folders": [
+		{
+			"path": "/home/thomas"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/.local": true,
+			"**/.cache": true,
+			"**/Public": true,
+			"**/.pki": true,
+			"**/.quokka": true,
+			"**/.rvm": true,
+			"**/.shutter": true,
+			"**/sites": true,
+			"**/.thumbnails": true,
+			"**/.tldr": true,
+			"**/.vscode": true,
+			"**/.yarn": true,
+			"**/.PhpStorm2018.3": true,
+			"**/.nvm": true,
+			"**/.nv": true,
+			"**/.npm": true,
+			"**/.mozilla": true,
+			"**/.java": true,
+			"**/.hyper_plugins": true,
+			"**/go": true,
+			"**/.gnupg": true,
+			"**/.gnome2": true,
+			"**/.gnome": true,
+			"**/.git": true,
+			"**/git": true,
+			"**/.gem": true,
+			"**/.gconf": true,
+			"**/.fzf": true,
+			"**/.dropbox-dist": true,
+			"**/.dropbox": true,
+			"**/.dotfiles": true,
+			"**/.DataGrip2018.3": true,
+			"**/.cheat": true,
+			"**/Boostnote": true,
+			"**/.purple": true,
+			"**/.quicktype-vscode": true,
+			"**/.bundle": true,
+			"**/Dropbox/.dropbox.cache": true,
+			"**/applications": true,
+		}
+	}
+}

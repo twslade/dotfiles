@@ -5,6 +5,9 @@
 # when a shell is a login shell).
 .*.swp
 
+# VSCode dotfiles workspace
+!dotsfiles.code-workspace
+
 # i3
 !.config
 !.config/*
