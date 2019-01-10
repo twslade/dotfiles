@@ -40,6 +40,20 @@ execute "set <M-1>=\e1"
 nmap <M-1> :NERDTreeToggle<cr>
 
 
+" turn hybrid line numbers on
+:set number relativenumber
+:set nu rnu
+
+" turn hybrid line numbers off
+:set nonumber norelativenumber
+:set nonu nornu
+
+" toggle hybrid line numbers
+:set number! relativenumber!
+:set nu! rnu!
+
+
+
 "===================MAPPINGS===================="
 
 "=================AUTO COMMANDS================="
@@ -49,6 +63,14 @@ augroup autosourcing
 	"Automatically source the VIMRC file on save
 	autocmd BufWritePost .vimrc source %
 augroup END
+
+:set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 
 "=================AUTO COMMANDS================="
 
