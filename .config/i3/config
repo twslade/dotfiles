@@ -13,8 +13,9 @@ set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
-set $term --no-startup-id $TERMINAL
+set $term --no-startup-id xfce4-terminal
 set $mod Mod4
+set $alt Mod1
 
 # Fonts
 font pango:Operator Mono Light, monospace 10
@@ -195,9 +196,14 @@ for_window [class="^.*"] border pixel 2
 
 # Dropdown calc
 bindsym $mod+a exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+
+bindsym $alt+space exec --no-startup-id copyq show
+
 for_window [title="dropdowncalc"] floating enable
 for_window [title="dropdowncalc"] resize set 800 300
 for_window [title="dropdowncalc"] move scratchpad
 for_window [title="dropdowncalc"] border pixel 2
 for_window [title="dropdowncalc"] sticky enable
+
+for_window [class="copyq"] border pixel 0, floating enable
 
