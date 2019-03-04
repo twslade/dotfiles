@@ -93,4 +93,6 @@ if [ -d "$HOME/.bin" ] ; then
 fi
 
 
-for file in "$(find ~/.custom/ -type f -print -quit)"; do source $file; done
+for file in ~/.custom/*.zsh; do
+    source "$file"
+done
