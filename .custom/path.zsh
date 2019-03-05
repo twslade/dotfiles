@@ -16,6 +16,11 @@ if [ -d "$HOME/.config/composer/vendor/bin/" ] ; then
 	export PATH="$HOME/.config/composer/vendor/bin/:$PATH"
 fi	
 
+# Gcloud
+if [ -d "/usr/lib/google-cloud-sdk/bin/" ]; then
+	export PATH="/usr/lib/google-cloud-sdk/bin/:$PATH"
+fi
+
 # Java
 if [ -d "/usr/lib/jvm/java-8-oracle" ] ; then
 	export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
