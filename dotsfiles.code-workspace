@@ -49,6 +49,9 @@
 			"**/.bundle": true,
 			"**/Dropbox/.dropbox.cache": true,
 			"**/applications": true,
+			"**/.config/code": true,
+			"**/.config/consoles": true,
+			"**/.DataGrip*": true
 		}
 	}
 }
