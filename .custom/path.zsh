@@ -14,11 +14,6 @@ fi
 
 if [ -d "$HOME/.config/composer/vendor/bin/" ] ; then
 	export PATH="$HOME/.config/composer/vendor/bin/:$PATH"
-fi	
-
-# Gcloud
-if [ -d "/usr/lib/google-cloud-sdk/bin/" ]; then
-	export PATH="/usr/lib/google-cloud-sdk/bin/:$PATH"
 fi
 
 # Java
@@ -29,12 +24,9 @@ fi
 # Ruby Version Manager
 [ -s /etc/profile.d/rvm.sh ] && source /etc/profile.d/rvm.sh
 
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Fuzzy Finder
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Python Virtual Env
-[ -f ~/.python-virtual-envs/python3.5/bin/activate ] && source ~/.python-virtual-envs/python3.5/bin/activate
+# Linux Brew
+if [ -d "/home/linuxbrew/.linuxbrew/bin" ] ; then
+	export PATH="/home/linuxbrew/.linuxbrew/bin/:$PATH"
+fi
