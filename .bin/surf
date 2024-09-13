@@ -31,7 +31,7 @@ surf-n-pier(){
 }
 
 surf-s-washout() {
-	vlc $(build "ZWMtd2FzaG91dHNvdXRoY2FtL2NodW5rbGlzdC5tM3U4Cg==")
+	vlc $(build "ZWMtd2FzaG91dHNvdXRoL2NodW5rbGlzdC5tM3U4Cg==")
 }
 
 surf-frisco(){
