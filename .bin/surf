@@ -30,6 +30,10 @@ surf-n-pier(){
 	vlc $(build "ZWMtZm9sbHlwaWVybm9ydGgvY2h1bmtsaXN0Lm0zdTgK")
 }
 
+surf-hiltonhead(){
+	vlc $(build "ZWMtaGlsdG9uaGVhZHN1cmYvY2h1bmtsaXN0Lm0zdTgK")
+}
+
 surf-s-washout() {
 	vlc $(build "ZWMtd2FzaG91dHNvdXRoL2NodW5rbGlzdC5tM3U4Cg==")
 }
@@ -49,6 +53,15 @@ surf-s-turns(){
 surf-bogue(){
 	vlc $(build "ZWMtYm9ndWVpbmxldHBpZXIvY2h1bmtsaXN0Lm0zdTgK")
 }
+
+surf-cocoa(){
+	vlc $(build "ZWMtY29jb2FiZWFjaHBpZXJzcy9jaHVua2xpc3QubTN1OAo=")	
+}
+
+surf-indiatlantic(){
+	vlc $(build "ZWMtaW5kaWFsYW50aWNub3J0aC9jaHVua2xpc3QubTN1OAo=")	
+}
+
 surf-st-augustine-a-st(){
 	vlc $(build "ZWMtc2FpbnRhdWd1c3QvY2h1bmtsaXN0Lm0zdTgK")
 }
@@ -68,7 +81,7 @@ surf-sebastian-inlet(){
 }
 
 surf-jacksonville(){
-	vlc $(build "ZWMtamFja3NvbnZpbGxlcGllci9jaHVua2xpc3QubTN1OAo=")
+	vlc $(build "ZWMtamF4cGllcnNzL2NodW5rbGlzdC5tM3U4Cg==")
 }
 
 surf-jacksonville-18(){
