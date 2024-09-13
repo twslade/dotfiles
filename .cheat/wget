@@ -1,9 +1,0 @@
-## Convert a site to relative links and download assets
-wget \
- --no-clobber \
- --page-requisites \
- --convert-links \
- --restrict-file-names=windows \
- --domains example.dev \
- --no-parent \
- example.dev/shop/view-all
