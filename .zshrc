@@ -66,9 +66,16 @@ plugins=(
     history
     git
     artisan
+    docker
+    docker-compose
     zsh-autosuggestions
     zsh-nvm
     yarn-autocompletions
+    fzf
+    django
+    kubectl
+    minikube
+    pyenv
 )
 
 
@@ -96,3 +103,8 @@ fi
 for file in ~/.custom/*.zsh; do
     source "$file"
 done
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/bitcomplete bit
+#eval "$(starship init zsh)"
+fpath=($fpath ~/.custom/completions)
