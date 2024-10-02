@@ -126,14 +126,27 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+
+# Copy Selection
+set $greenclip_chooser rofi -modi "clipboard:/home/thomas/.bin/greenclip print" -show clipboard -run-command '{cmd}'
+bindsym Control+space exec --no-startup-id $greenclip_chooser
+
 # Spotify
-bindsym Control+$alt+Shift+Up exec --no-startup-id "dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set string:org.mpris.MediaPlayer2.Player string:Volume variant:double:1"
-bindsym Control+$alt+Shift+Down exec --no-startup-id "dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set string:org.mpris.MediaPlayer2.Player string:Volume variant:double:0.1"
-bindsym Control+$alt+Shift+space exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-bindsym Control+$alt+Shift+Right exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-bindsym Control+$alt+Shift+Left exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-bindsym Control+$alt+Right exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Seek int64:6000000"
-bindsym Control+$alt+Left exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Seek int64:-6000000"
+set $spotify_volume_up "dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set string:org.mpris.MediaPlayer2.Player string:Volume variant:double:1"
+set $spotify_volume_down "dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set string:org.mpris.MediaPlayer2.Player string:Volume variant:double:0.1"
+set $spotify_pause "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+set $spotify_next "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+set $spotify_prev "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+set $spotify_fast_forward "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Seek int64:6000000"
+set $spotify_rewind  "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Seek int64:-6000000"
+
+bindsym Control+$alt+Shift+Up exec --no-startup-id $spotify_volume_up
+bindsym Control+$alt+Shift+Down exec --no-startup-id $spotify_volume_down
+bindsym Control+$alt+Shift+space exec --no-startup-id $spotify_pause
+bindsym Control+$alt+Shift+Right exec --no-startup-id $spotify_next
+bindsym Control+$alt+Shift+Left exec --no-startup-id $spotify_prev
+bindsym Control+$alt+Right exec --no-startup-id $spotify_fast_forward
+bindsym Control+$alt+Left exec --no-startup-id $spotify_rewind
 
 
 
