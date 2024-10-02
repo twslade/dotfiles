@@ -18,73 +18,76 @@ build(){
 	echo $(getBase)$(base64decode $1)
 }
 
-surf-n-washout(){
+surf-sc-n-washout(){
 	vlc $(build "ZWMtd2FzaG91dC9jaHVua2xpc3QubTN1OAo=")
 }
 
-surf-s-pier(){
+surf-sc-s-pier(){
 	vlc $(build "ZWMtZm9sbHlwaWVyc291dGgvY2h1bmtsaXN0Lm0zdTgK")
 }
 
-surf-n-pier(){
+surf-sc-n-pier(){
 	vlc $(build "ZWMtZm9sbHlwaWVybm9ydGgvY2h1bmtsaXN0Lm0zdTgK")
 }
 
-surf-hiltonhead(){
+surf-sc-hiltonhead(){
 	vlc $(build "ZWMtaGlsdG9uaGVhZHN1cmYvY2h1bmtsaXN0Lm0zdTgK")
 }
 
-surf-s-washout() {
+surf-sc-s-washout() {
 	vlc $(build "ZWMtd2FzaG91dHNvdXRoL2NodW5rbGlzdC5tM3U4Cg==")
 }
 
-surf-frisco(){
+surf-nc-frisco(){
 	vlc $(build "ZWMtZnJpc2NvcGllci9jaHVua2xpc3QubTN1OAo=")
 }
 
-surf-hatteras(){
+surf-nc-hatteras(){
 	vlc $(build "ZWMtY2FwZWhhdHRlcmFzL2NodW5rbGlzdC5tM3U4Cg==")
 }
-
-surf-s-turns(){
+surf-nc-s-turns(){
 	vlc $(build "ZWMtcm9kYW50aGUvY2h1bmtsaXN0Lm0zdTgK")
 }
 
-surf-bogue(){
+surf-nc-rodanthepier(){
+	vlc $(build "ZWMtcm9kYW50aGVwaWVyL2NodW5rbGlzdC5tM3U4Cg==")
+}
+
+surf-nc-bogue(){
 	vlc $(build "ZWMtYm9ndWVpbmxldHBpZXIvY2h1bmtsaXN0Lm0zdTgK")
 }
 
-surf-cocoa(){
+surf-fl-cocoa(){
 	vlc $(build "ZWMtY29jb2FiZWFjaHBpZXJzcy9jaHVua2xpc3QubTN1OAo=")	
 }
 
-surf-indiatlantic(){
+surf-fl-indiatlantic(){
 	vlc $(build "ZWMtaW5kaWFsYW50aWNub3J0aC9jaHVua2xpc3QubTN1OAo=")	
 }
 
-surf-st-augustine-a-st(){
+surf-fl-st-augustine-a-st(){
 	vlc $(build "ZWMtc2FpbnRhdWd1c3QvY2h1bmtsaXN0Lm0zdTgK")
 }
 
-surf-st-augustine(){
+surf-fl-st-augustine(){
 	vlc $(build "ZWMtc3RhdWd1c3RpbmUvY2h1bmtsaXN0Lm0zdTgK")
 }
 
-surf-new-smyrna(){
+surf-fl-new-smyrna(){
 	vlc $(build "ZWMtbmV3c215L2NodW5rbGlzdC5tM3U4Cg==")
 }
-surf-flagler(){
+surf-fl-flagler(){
 	vlc $(build "ZWMtZmxhZ2xlcmJlYWNoL2NodW5rbGlzdC5tM3U4Cg==")
 }
-surf-sebastian-inlet(){
+surf-fl-sebastian-inlet(){
 	vlc $(build "ZWMtc2ViYXN0aWFuaW5sZXQvY2h1bmtsaXN0Lm0zdTgK")
 }
 
-surf-jacksonville(){
+surf-fl-jacksonville(){
 	vlc $(build "ZWMtamF4cGllcnNzL2NodW5rbGlzdC5tM3U4Cg==")
 }
 
-surf-jacksonville-18(){
+surf-fl-jacksonville-18(){
 	vlc $(build "ZWMtamFja3NvbnZpbGxlL2NodW5rbGlzdC5tM3U4Cg==")
 }
 
