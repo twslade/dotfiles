@@ -62,6 +62,15 @@ exec --no-startup-id nm-applet
 exec --no-startup-id $HOME/.bin/greenclip daemon
 exec --no-startup-id compton config $HOME/.config/compton/compton.conf
 
+exec --no-startup-id xedgewarp -b
+exec_always --no-startup-id flashfocus
+
+# Notes scratchpad: a dedicated terminal editing ~/Documents/notes/notes.md.
+# --role survives vim changing the title, so the for_window rule stays matched.
+exec --no-startup-id xfce4-terminal --disable-server --role=scratchpad-notes -e "vim $HOME/Documents/notes/notes.md"
+for_window [window_role="scratchpad-notes"] floating enable, resize set 1100 750, move scratchpad
+bindsym $mod+n [window_role="scratchpad-notes"] scratchpad show, move position center
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
