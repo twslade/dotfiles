@@ -34,8 +34,8 @@ set $transparent #00000000
 font pango:Hack, FontAwesome 12
 
 #                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
-client.unfocused        $black      $black      $white      $darkblack  $darkblack
+client.focused          $black      $darkblue   $white      $darkblack  $darkblack
+client.unfocused        $black      $black      $darkwhite  $darkblack  $darkblack
 client.focused_inactive $black      $black      $white      $darkblack  $darkblack
 client.urgent           $darkred    $darkred    $black      $darkred    $darkred
 client.background       $black
