@@ -180,8 +180,8 @@ bindsym Control+$alt+Shift+Left exec --no-startup-id $spotify_prev
 bindsym Control+$alt+Right exec --no-startup-id $spotify_fast_forward
 bindsym Control+$alt+Left exec --no-startup-id $spotify_rewind
 
-
-
+# Screenshot: rectangular selection via Shutter
+bindsym Control+$alt+Shift+p exec --no-startup-id shutter --select --exit_after_capture
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
