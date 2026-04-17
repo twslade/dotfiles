@@ -163,8 +163,9 @@ set $greenclip_chooser rofi -modi "clipboard:$HOME/.bin/greenclip print" -show c
 bindsym Control+$alt+Shift+v exec --no-startup-id $greenclip_chooser
 
 # Spotify
-set $spotify_volume_up "dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set string:org.mpris.MediaPlayer2.Player string:Volume variant:double:1"
-set $spotify_volume_down "dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set string:org.mpris.MediaPlayer2.Player string:Volume variant:double:0.1"
+# MPRIS Volume.Set is a no-op on Spotify; control the per-app PulseAudio sink instead.
+set $spotify_volume_up $HOME/.bin/spotify-volume up
+set $spotify_volume_down $HOME/.bin/spotify-volume down
 set $spotify_pause "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 set $spotify_next "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 set $spotify_prev "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"

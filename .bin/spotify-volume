@@ -1,0 +1,22 @@
+#!/bin/sh
+# Adjust Spotify's per-app volume via PulseAudio/PipeWire.
+# MPRIS Volume.Set is a no-op on Spotify, so we operate on its sink-input.
+# Usage: spotify-volume up|down [step] (step is a pactl percentage, default 5)
+
+dir="$1"
+step="${2:-5}"
+
+case "$dir" in
+  up)   delta="+${step}%" ;;
+  down) delta="-${step}%" ;;
+  *)    echo "usage: $0 up|down [step-percent]" >&2; exit 1 ;;
+esac
+
+id=$(pactl list sink-inputs | awk '
+  /^Sink Input #/ { id = substr($3, 2); next }
+  /application\.name = "spotify"/ { print id; exit }
+')
+
+[ -z "$id" ] && exit 1
+
+exec pactl set-sink-input-volume "$id" "$delta"
