@@ -56,4 +56,4 @@
 !.gitignore
 
 # My global Git excludes file (acts as a global .gitignore)
-!.gitexcludes
+!.gitexcludes.custom/gemini.zsh
