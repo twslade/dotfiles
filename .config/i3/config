@@ -160,7 +160,7 @@ set $ws10 "10"
 
 # Copy Selection
 set $greenclip_chooser rofi -modi "clipboard:$HOME/.bin/greenclip print" -show clipboard -run-command '{cmd}'
-bindsym Control+space exec --no-startup-id $greenclip_chooser
+bindsym Control+$alt+Shift+v exec --no-startup-id $greenclip_chooser
 
 # Spotify
 set $spotify_volume_up "dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set string:org.mpris.MediaPlayer2.Player string:Volume variant:double:1"
