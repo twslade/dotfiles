@@ -69,13 +69,11 @@ plugins=(
     docker
     docker-compose
     zsh-autosuggestions
-    zsh-nvm
     yarn-autocompletions
     fzf
     django
     kubectl
     minikube
-    pyenv
 )
 
 
