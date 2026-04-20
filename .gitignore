@@ -13,6 +13,7 @@
 !.config/*
 !.config/i3/*
 !.config/lf/*
+!.config/mise/*
 .config/Trolltech.conf
 .config/mimeapps.list
 .config/user-dirs.dirs
@@ -56,4 +57,4 @@
 !.gitignore
 
 # My global Git excludes file (acts as a global .gitignore)
-!.gitexcludes.custom/gemini.zsh
+!.gitexcludes
