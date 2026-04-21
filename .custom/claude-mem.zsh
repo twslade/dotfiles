@@ -1,1 +1,1 @@
-alias claude-mem='/home/thomas/.bun/bin/bun "/home/thomas/.claude/plugins/cache/thedotmack/claude-mem/12.1.0/scripts/worker-service.cjs"'
+alias claude-mem='bun "$HOME/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
