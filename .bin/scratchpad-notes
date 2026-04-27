@@ -1,0 +1,6 @@
+#!/bin/bash
+if ! i3-msg -t get_tree | grep -q '"window_role":"scratchpad-notes"'; then
+    xfce4-terminal --disable-server --role=scratchpad-notes -e "vim $HOME/Documents/notes/notes.md" &
+    sleep 0.4
+fi
+i3-msg '[window_role="scratchpad-notes"] scratchpad show, move position center'

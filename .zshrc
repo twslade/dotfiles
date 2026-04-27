@@ -74,6 +74,7 @@ plugins=(
     django
     kubectl
     minikube
+    yarn-workspace-completion
 )
 
 
