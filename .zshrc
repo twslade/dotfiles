@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/thomas/.oh-my-zsh"
+export ZSH="/home/thomas/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -84,12 +84,6 @@ export EDITOR="vim"
 export TERMINAL="xfce4-terminal"
 export BROWSER="google-chrome"
 
-export MYSQL_USER="$(echo "cm9vdAo=" | base64 -d)"
-export MYSQL_PASS="$(echo "MTIzMTIzCg==" | base64 -d)"
-
-export MAGE_USER="$(echo "dGhvbWFzCg==" | base64 -d)"
-export MAGE_PASS="$(echo "MTIzMTIzCg==" | base64 -d)"
-
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
@@ -105,5 +99,4 @@ done
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bitcomplete bit
-#eval "$(starship init zsh)"
 fpath=($fpath ~/.custom/completions)
