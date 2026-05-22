@@ -109,12 +109,19 @@ bindsym Control+Shift+m         exec --no-startup-id pactl set-sink-mute @DEFAUL
 # Audio source/sink picker
 bindsym $mod+Shift+a exec --no-startup-id pavucontrol
 
-# Wallpaper control (variety): no tray icon in i3 because i3bar lacks SNI
-# support, so drive variety from the CLI instead.
-bindsym $mod+Shift+n exec --no-startup-id variety --next
-bindsym $mod+Shift+b exec --no-startup-id variety --previous
-bindsym $mod+Shift+t exec --no-startup-id variety --trash
-bindsym $mod+Shift+f exec --no-startup-id variety --favorite
+# Wallpaper control (variety): i3bar lacks SNI tray support, so drive variety
+# from a dedicated submode entered with $mod+b ("background").
+set $mode_wallpaper Wallpaper: (n)ext  (p)rev  (f)avorite  (t)rash
+mode "$mode_wallpaper" {
+    bindsym n exec --no-startup-id variety --next,     mode "default"
+    bindsym p exec --no-startup-id variety --previous, mode "default"
+    bindsym f exec --no-startup-id variety --favorite, mode "default"
+    bindsym t exec --no-startup-id variety --trash,    mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+b mode "$mode_wallpaper"
 
 # Handy dictation toggle (tap to start, tap to stop)
 bindsym $mod+t exec --no-startup-id handy --toggle-transcription
