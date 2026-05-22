@@ -14,6 +14,7 @@
 !.config/i3/*
 !.config/lf/*
 !.config/mise/*
+!.config/xsettingsd/*
 .config/Trolltech.conf
 .config/mimeapps.list
 .config/user-dirs.dirs

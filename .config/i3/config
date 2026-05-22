@@ -47,6 +47,9 @@ client.background       $black
 # Monitor layout: DP-0 (left, rotated portrait) | DP-2 (right, landscape)
 exec_always --no-startup-id xrandr --output DP-0 --rotate right --pos 0x0 --output DP-2 --rotate normal --pos 2160x0
 
+# GTK theme broadcaster (XSETTINGS) - keeps Chrome/Brave/GTK apps in dark mode
+exec --no-startup-id xsettingsd
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
