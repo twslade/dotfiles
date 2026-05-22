@@ -17,6 +17,8 @@
 !.config/xsettingsd/*
 !.config/dunst/*
 !.config/picom/*
+!.config/wireplumber
+!.config/wireplumber/**
 .config/Trolltech.conf
 .config/mimeapps.list
 .config/pavucontrol.ini
