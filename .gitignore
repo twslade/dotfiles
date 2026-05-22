@@ -62,3 +62,7 @@
 
 # My global Git excludes file (acts as a global .gitignore)
 !.gitexcludes
+
+# Claude Code global user instructions
+!.claude
+!.claude/CLAUDE.md
