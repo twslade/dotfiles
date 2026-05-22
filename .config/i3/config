@@ -44,8 +44,10 @@ client.background       $black
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# Monitor layout: DP-0 (left, rotated portrait) | DP-2 (right, landscape)
-exec_always --no-startup-id xrandr --output DP-0 --rotate right --pos 0x0 --output DP-2 --rotate normal --pos 2160x0
+# Monitor layout: DP-0 (left, rotated portrait) | DP-2 (right, landscape, primary)
+# Primary matters for i3bar tray placement AND for tools (Unsplash, etc.) that
+# read primary's resolution when deciding what image size to request.
+exec_always --no-startup-id xrandr --output DP-0 --rotate right --pos 0x0 --output DP-2 --rotate normal --pos 2160x0 --primary
 
 # GTK theme broadcaster (XSETTINGS) - keeps Chrome/Brave/GTK apps in dark mode
 exec --no-startup-id xsettingsd
@@ -106,6 +108,13 @@ bindsym Control+Shift+m         exec --no-startup-id pactl set-sink-mute @DEFAUL
 
 # Audio source/sink picker
 bindsym $mod+Shift+a exec --no-startup-id pavucontrol
+
+# Wallpaper control (variety): no tray icon in i3 because i3bar lacks SNI
+# support, so drive variety from the CLI instead.
+bindsym $mod+Shift+n exec --no-startup-id variety --next
+bindsym $mod+Shift+b exec --no-startup-id variety --previous
+bindsym $mod+Shift+t exec --no-startup-id variety --trash
+bindsym $mod+Shift+f exec --no-startup-id variety --favorite
 
 # Handy dictation toggle (tap to start, tap to stop)
 bindsym $mod+t exec --no-startup-id handy --toggle-transcription
