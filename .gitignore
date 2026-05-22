@@ -19,6 +19,8 @@
 !.config/picom/*
 !.config/wireplumber
 !.config/wireplumber/**
+!.config/variety
+!.config/variety/variety.conf
 .config/Trolltech.conf
 .config/mimeapps.list
 .config/pavucontrol.ini
