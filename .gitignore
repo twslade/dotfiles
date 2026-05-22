@@ -15,6 +15,7 @@
 !.config/lf/*
 !.config/mise/*
 !.config/xsettingsd/*
+!.config/dunst/*
 .config/Trolltech.conf
 .config/mimeapps.list
 .config/user-dirs.dirs

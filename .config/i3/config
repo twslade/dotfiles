@@ -50,6 +50,15 @@ exec_always --no-startup-id xrandr --output DP-0 --rotate right --pos 0x0 --outp
 # GTK theme broadcaster (XSETTINGS) - keeps Chrome/Brave/GTK apps in dark mode
 exec --no-startup-id xsettingsd
 
+# Notification daemon
+exec --no-startup-id dunst
+
+# Auto-mount removable media
+exec --no-startup-id udiskie --tray
+
+# Blue-light filter (geoclue-based; falls back to manual lat/lon if needed)
+exec --no-startup-id redshift-gtk
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
