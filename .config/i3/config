@@ -123,6 +123,21 @@ mode "$mode_wallpaper" {
 }
 bindsym $mod+b mode "$mode_wallpaper"
 
+# System / session control. Lock relies on xss-lock catching the
+# loginctl lock-session signal and firing i3lock.
+set $mode_system System: (l)ock  (e)xit  (s)uspend  (r)eboot  (p)oweroff
+mode "$mode_system" {
+    bindsym l exec --no-startup-id loginctl lock-session, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit,           mode "default"
+    bindsym s exec --no-startup-id systemctl suspend,     mode "default"
+    bindsym r exec --no-startup-id systemctl reboot,      mode "default"
+    bindsym p exec --no-startup-id systemctl poweroff,    mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
 # Handy dictation toggle (tap to start, tap to stop)
 bindsym $mod+t exec --no-startup-id handy --toggle-transcription
 
