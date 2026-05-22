@@ -16,8 +16,10 @@
 !.config/mise/*
 !.config/xsettingsd/*
 !.config/dunst/*
+!.config/picom/*
 .config/Trolltech.conf
 .config/mimeapps.list
+.config/pavucontrol.ini
 .config/user-dirs.dirs
 .config/user-dirs.locale
 .config/QtProject.conf

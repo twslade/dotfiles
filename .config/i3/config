@@ -75,7 +75,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 exec --no-startup-id $HOME/.bin/greenclip daemon
-exec --no-startup-id compton config $HOME/.config/compton/compton.conf
+exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
 
 exec --no-startup-id xedgewarp -b
 exec --no-startup-id handy --start-hidden
