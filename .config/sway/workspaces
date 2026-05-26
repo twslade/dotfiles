@@ -1,0 +1,14 @@
+# Workspace -> output assignments (ported from old i3 config)
+# ws 1-4 on landscape monitor (right), ws 5-8 on portrait monitor (left)
+# Use `number N` so we match the workspace number regardless of the
+# dynamic name suffix added by autoname-workspaces.py.
+
+workspace number 1 output DP-1
+workspace number 2 output DP-1
+workspace number 3 output DP-1
+workspace number 4 output DP-1
+workspace number 5 output DP-2
+workspace number 6 output DP-2
+workspace number 7 output DP-2
+workspace number 8 output DP-2
+workspace number 9 output DP-2
