@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Region-select screenshot. Saves to ~/Pictures with a date stamp
+# AND copies the PNG to the Wayland clipboard.
+# Mirrors the old i3 Shutter binding: Ctrl+Alt+Shift+P -> drag a region.
+
+dir="${HOME}/Pictures"
+mkdir -p "$dir"
+
+ts=$(date +%Y-%m-%d-%H%M%S)
+out="${dir}/Screenshot-${ts}.png"
+
+# slurp captures a mouse-drag region. If the user cancels (Esc), exit cleanly.
+geom=$(slurp) || exit 0
+
+grim -g "$geom" - | tee "$out" | wl-copy -t image/png
+
+notify-send -i "$out" "Screenshot" "Saved ${out/#$HOME/~} + copied to clipboard"

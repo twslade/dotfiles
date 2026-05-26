@@ -1,0 +1,37 @@
+#!/bin/sh
+# Adjust Spotify's per-app volume.
+#
+# Spotify on PipeWire exposes its audio stream as a generic "audio-src" node
+# without any application.name=spotify tag, so we can't match by name. Instead
+# we resolve Spotify's PID, find the PipeWire/PulseAudio client whose
+# pipewire.sec.pid matches it, then locate the sink-input owned by that client.
+#
+# Usage: spotify-volume up|down [step] (step is a pactl percentage, default 5)
+
+dir="$1"
+step="${2:-5}"
+
+case "$dir" in
+  up)   delta="+${step}%" ;;
+  down) delta="-${step}%" ;;
+  *)    echo "usage: $0 up|down [step-percent]" >&2; exit 1 ;;
+esac
+
+spotify_pid=$(pgrep -of '^/usr/share/spotify/spotify$') || exit 1
+
+client_id=$(pactl list clients 2>/dev/null | awk -v pid="$spotify_pid" '
+  /^Client #/        { cur = substr($2, 2); next }
+  /pipewire\.sec\.pid = / {
+    gsub(/"/, "", $3)
+    if ($3 == pid) { print cur; exit }
+  }
+')
+[ -z "$client_id" ] && exit 1
+
+sink_input=$(pactl list sink-inputs 2>/dev/null | awk -v cli="$client_id" '
+  /^Sink Input #/         { cur = substr($3, 2); next }
+  /^[[:space:]]*Client:/  { if ($2 == cli) { print cur; exit } }
+')
+[ -z "$sink_input" ] && exit 1
+
+exec pactl set-sink-input-volume "$sink_input" "$delta"
