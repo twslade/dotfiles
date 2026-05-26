@@ -8,10 +8,20 @@
 # VSCode dotfiles workspace
 !dotsfiles.code-workspace
 
-# i3
+# i3 / sway
 !.config
 !.config/*
 !.config/i3/*
+!.config/sway/*
+# Distro default — leave to package manager.
+.config/sway/config
+# nwg-displays manages this; per-monitor state churns too often to track.
+.config/sway/outputs
+!.config/sway/config.d/*
+!.config/sway/variables.d/*
+# Stock distro files in those dirs — leave to package manager.
+.config/sway/config.d/*.example
+.config/sway/variables.d/README.md
 !.config/lf/*
 !.config/mise/*
 !.config/xsettingsd/*
@@ -46,6 +56,15 @@
 #BIN
 !.bin
 !.bin/*
+
+# .local/bin (XDG-style scripts; new sway-era scripts live here).
+# Re-exclude tooling installed under this prefix — mise/claude live here too,
+# but they're host-specific binaries/symlinks, not dotfiles.
+!.local
+!.local/bin
+!.local/bin/*
+.local/bin/mise
+.local/bin/claude
 
 #VIM
 !.vimrc
