@@ -1,5 +1,5 @@
 # Clipboard
-Whenever you give me a shell command I need to run myself (e.g. anything requiring `sudo` interactively, an external login, or a command I should paste elsewhere), copy it to my clipboard via `printf '<command>' | xsel -ib`. Do this without being asked.
+Whenever you give me a shell command I need to run myself (e.g. anything requiring `sudo` interactively, an external login, or a command I should paste elsewhere), copy it to my clipboard via `printf '<command>' | wl-copy`. Do this without being asked.
 
 # Git
 Use gh cli tool for interfacing with Github.
