@@ -1,16 +1,26 @@
 #!/usr/bin/env bash
-# Ported from old i3 ~/.bin/scratchpad-notes.
-# Old version used xfce4-terminal + X11 window_role. Sway/Wayland uses app_id.
+# Quick-notes scratchpad: a single Pluma window editing ~/Documents/notes/notes.md.
+# Pluma has autosave enabled (org.mate.pluma auto-save = true, interval 1 min),
+# so dismissing the window doesn't lose work.
 
 NOTES_FILE="$HOME/Documents/notes/notes.md"
-APP_ID="scratchpad-notes"
+# Match Pluma's window for THIS file only (title contains "notes.md" + "Pluma").
+# This way other pluma windows (editing other files) aren't pulled into the
+# scratchpad.
+CRITERIA='[app_id="pluma" title=".*notes\.md.*Pluma$"]'
 
-# Spawn the scratchpad terminal if it doesn't already exist.
-if ! swaymsg -t get_tree | grep -q "\"app_id\":\"${APP_ID}\""; then
-  foot --app-id="$APP_ID" -- vim "$NOTES_FILE" &
-  # Wait briefly for the window to register so the for_window rule fires.
-  sleep 0.4
+mkdir -p "$(dirname "$NOTES_FILE")"
+
+# If no matching pluma window exists, launch one and let the for_window rule
+# in 20-window-rules.conf send it to the scratchpad.
+if ! swaymsg -t get_tree --raw \
+    | jq -e '.. | objects | select(.app_id == "pluma" and (.name // "" | test("notes\\.md.*Pluma$")))' \
+    >/dev/null 2>&1; then
+  pluma "$NOTES_FILE" &
+  # Give sway time to apply the for_window rule before the toggle below.
+  sleep 0.5
 fi
 
-# Toggle visibility + recenter (matches old behavior).
-swaymsg "[app_id=\"${APP_ID}\"] scratchpad show, move position center"
+# Toggle visibility. In sway, `scratchpad show` brings a hidden scratchpad
+# item up; calling it again on a visible scratchpad item sends it back.
+swaymsg "$CRITERIA scratchpad show, move position center"
