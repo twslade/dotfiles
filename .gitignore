@@ -27,6 +27,11 @@
 !.config/xsettingsd/*
 !.config/dunst/*
 !.config/picom/*
+!.config/foot/*
+!.config/waybar/*
+!.config/mako/*
+!.config/fuzzel/*
+!.config/wofi/*
 !.config/wireplumber
 !.config/wireplumber/**
 !.config/variety
