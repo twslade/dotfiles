@@ -78,6 +78,10 @@ plugins=(
 )
 
 
+# Activate mise BEFORE oh-my-zsh so plugins that look up binaries on PATH
+# (e.g. the oh-my-zsh `fzf` plugin) can find mise-managed tools.
+eval "$(~/.local/bin/mise activate zsh)"
+
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR="vim"
