@@ -1,0 +1,5 @@
+#!/bin/sh
+# Spotify with the spotify-adblock LD_PRELOAD wrapper. Mirrors the
+# `spotify-custom` zsh alias from ~/.custom/aliases.zsh — wrapped here so
+# it's callable from .desktop entries (which can't use shell aliases).
+exec env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify "$@"
