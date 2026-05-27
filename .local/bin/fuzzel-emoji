@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Emoji picker using fuzzel. Reuses the emoji dataset embedded in
+# /usr/bin/wofi-emoji so the list stays in sync with the distro package.
+set -euo pipefail
+
+DATA_SRC=/usr/bin/wofi-emoji
+
+EMOJI=$(
+    sed '1,/^### DATA ###$/d' "$DATA_SRC" \
+        | fuzzel --dmenu \
+            --prompt="emoji> " \
+            --font="JetBrainsMono Nerd Font:size=10" \
+            --width=140 \
+            --lines=32 \
+        | cut -d ' ' -f 1 \
+        | tr -d '\n'
+)
+
+[ -z "$EMOJI" ] && exit 0
+
+wtype "$EMOJI"
+wl-copy "$EMOJI"
