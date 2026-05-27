@@ -45,6 +45,14 @@
 .config/zoom.conf
 .config/zoomus.conf
 
+# Systemd user-unit drop-ins (overrides for waybar, xdg-desktop-portal, etc.
+# that we want to travel with the dotfiles). Only track drop-in dirs, not
+# state files like timer stamps.
+!.config/systemd
+!.config/systemd/user
+!.config/systemd/user/*.service.d
+!.config/systemd/user/*.service.d/*.conf
+
 !.profile
 
 !.custom
