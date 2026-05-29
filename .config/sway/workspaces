@@ -1,14 +1,25 @@
-# Workspace -> output assignments (ported from old i3 config)
-# ws 1-4 on landscape monitor (right), ws 5-8 on portrait monitor (left)
-# Use `number N` so we match the workspace number regardless of the
-# dynamic name suffix added by autoname-workspaces.py.
+# Workspace -> output assignments.
+#
+# Keyed by stable output IDENTIFIER (make + model + serial), NOT connector
+# name (DP-1/DP-2). The NVIDIA driver reshuffles which DisplayPort connector
+# each physical monitor maps to across driver updates/reboots (observed
+# 2026-05-28: DP-1 and DP-2 swapped monitors after an nvidia-driver update),
+# so connector-based assignment lands workspaces on the wrong screen.
+# Identifiers stay glued to the physical panel regardless of connector.
+#
+# Layout intent: ws 1-4 on the landscape monitor, ws 5-9 on the portrait one.
+#   Landscape (right): LG Ultra HD, serial 0x00037F03
+#   Portrait  (left):  LG HDR 4K,   serial 0x0007A9E5
+#
+# Use `number N` so we match the workspace number regardless of the dynamic
+# name suffix added by autoname-workspaces.py.
 
-workspace number 1 output DP-1
-workspace number 2 output DP-1
-workspace number 3 output DP-1
-workspace number 4 output DP-1
-workspace number 5 output DP-2
-workspace number 6 output DP-2
-workspace number 7 output DP-2
-workspace number 8 output DP-2
-workspace number 9 output DP-2
+workspace number 1 output "LG Electronics LG Ultra HD 0x00037F03"
+workspace number 2 output "LG Electronics LG Ultra HD 0x00037F03"
+workspace number 3 output "LG Electronics LG Ultra HD 0x00037F03"
+workspace number 4 output "LG Electronics LG Ultra HD 0x00037F03"
+workspace number 5 output "LG Electronics LG HDR 4K 0x0007A9E5"
+workspace number 6 output "LG Electronics LG HDR 4K 0x0007A9E5"
+workspace number 7 output "LG Electronics LG HDR 4K 0x0007A9E5"
+workspace number 8 output "LG Electronics LG HDR 4K 0x0007A9E5"
+workspace number 9 output "LG Electronics LG HDR 4K 0x0007A9E5"
