@@ -36,6 +36,9 @@
 !.config/wireplumber/**
 !.config/variety
 !.config/variety/variety.conf
+# nwg-wrapper: track only our customised cheat-sheet files; the rest of the
+# dir is distro/nwg-shell stock, left to the package manager.
+!.config/nwg-wrapper/help.sh
 .config/Trolltech.conf
 .config/mimeapps.list
 .config/pavucontrol.ini
