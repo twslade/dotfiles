@@ -11,6 +11,9 @@ if [ "$1" = "--toggle" ]; then
 else
   pkill -U "$USER" -f -${QUIT_SIGNAL} 'nwg-wrapper.*-s help.sh'
   for output in $(swaymsg -t get_outputs --raw | jq -r '.[].name'); do
-    nwg-wrapper -o "$output" -l 3 -i -sv ${VISIBILITY_SIGNAL} -sq ${QUIT_SIGNAL} -s help.sh -p left -a end &
+    # Position/alignment flags omitted on purpose: nwg-wrapper centres
+    # (position) and middle-aligns when -p/-a are absent. Passing them with
+    # no value is an error; "left"/"right" anchors to an edge.
+    nwg-wrapper -o "$output" -l 3 -i -sv ${VISIBILITY_SIGNAL} -sq ${QUIT_SIGNAL} -s help.sh -c help.css &
   done
 fi

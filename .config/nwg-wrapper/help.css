@@ -1,0 +1,25 @@
+/* Styling for the Mod+? keybinding overlay (nwg-wrapper -s help.sh).
+ * Kept separate from style.css so it doesn't affect the other nwg-wrapper
+ * widgets. Only #box-inner gets a background, so the panel floats as a
+ * translucent rounded card while the rest of the screen stays clear.
+ *
+ * The font MUST be a monospace Nerd Font: monospace so help.sh's column
+ * padding lines up, Nerd Font so the Super () / audio glyphs render. */
+
+window {
+    background-color: transparent;
+    color: #eeeeee;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 12px;
+}
+
+#box-outer {
+    background-color: transparent;
+}
+
+#box-inner {
+    background-color: rgba(20, 20, 28, 0.92);
+    border: 2px solid rgba(102, 153, 204, 0.9);
+    border-radius: 12px;
+    padding: 18px 28px;
+}
