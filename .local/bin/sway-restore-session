@@ -1,0 +1,90 @@
+#!/bin/sh
+# Manual session-restore: launches autostart apps and pins each workspace
+# to its assigned monitor. Run this after each fresh sway login.
+#
+# Replaces the autostart `exec` in ~/.config/sway/config.d/45-user-autostart.conf,
+# which raced against nwg-displays / autoname-workspaces / autotiling at session
+# start and produced inconsistent workspace placement.
+#
+# Strategy: instead of relying on `workspace number N output X` directives,
+# explicitly focus each monitor and create the workspaces that belong there.
+# A workspace freshly created via `workspace number N` lands on the currently
+# focused output, so the assignment is deterministic.
+#
+# Outputs are resolved by ORIENTATION at runtime, not by connector name. The
+# NVIDIA driver reshuffles which DisplayPort connector each monitor maps to
+# (observed 2026-05-28: DP-1/DP-2 swapped after a driver update), so hardcoding
+# DP-1/DP-2 sends everything to the wrong screen. Landscape = width > height,
+# portrait = height > width (rect dims are post-transform).
+#
+# Layout:
+#   landscape monitor (right): workspaces 1-4  (ws1 Chrome, ws4 Brave)
+#   portrait  monitor (left):  workspaces 5-9  (ws5 tabbed comms PWAs,
+#                                               ws6 Spotify + Obsidian)
+
+set -u
+
+# --- Resolve outputs by orientation -------------------------------------
+LANDSCAPE=$(swaymsg -t get_outputs --raw | \
+    jq -r '.[] | select(.active and .rect.width  > .rect.height) | .name' | head -n1)
+PORTRAIT=$(swaymsg -t get_outputs --raw | \
+    jq -r '.[] | select(.active and .rect.height > .rect.width) | .name' | head -n1)
+
+if [ -z "$LANDSCAPE" ] || [ -z "$PORTRAIT" ]; then
+    swaymsg "exec notify-send 'sway-restore-session' 'Could not resolve a landscape + portrait output; aborting.'"
+    exit 1
+fi
+
+# --- Browser session-restore preflight ----------------------------------
+# Sway SIGKILLs Chrome/Brave on logout before they can mark a clean exit, so
+# their Preferences show `exit_type:Crashed`. Chrome then disables session
+# restore on next launch. Patch the files before launching either browser.
+for prefs in \
+    "$HOME/.config/google-chrome/Default/Preferences" \
+    "$HOME/.config/BraveSoftware/Brave-Browser/Default/Preferences"
+do
+    [ -f "$prefs" ] && sed -i \
+        -e 's/"exit_type":"Crashed"/"exit_type":"Normal"/' \
+        -e 's/"exited_cleanly":false/"exited_cleanly":true/' \
+        "$prefs"
+done
+
+# --- Pin workspaces to outputs by deterministic creation order ----------
+# Create higher-numbered workspaces first so the last `workspace` command
+# on each output leaves the lowest-numbered one focused — looks nicer.
+swaymsg "focus output \"$LANDSCAPE\""
+for n in 4 3 2 1; do swaymsg "workspace number $n"; done
+
+swaymsg "focus output \"$PORTRAIT\""
+for n in 9 8 7 6; do swaymsg "workspace number $n"; done
+swaymsg "workspace number 5; layout tabbed"
+
+# --- Launch apps onto their target workspaces ---------------------------
+swaymsg "workspace number 6"
+"$HOME/.local/bin/spotify-custom" &
+obsidian "obsidian://open?vault=obsidian" &
+sleep 2
+
+swaymsg "workspace number 4"
+brave-browser --restore-last-session &
+sleep 2
+
+swaymsg "workspace number 1"
+google-chrome --restore-last-session &
+sleep 3
+
+# PWAs aren't restored by Chrome's session-restore; launch them explicitly.
+# for_window rules in 20-window-rules.conf route them to ws5.
+gtk-launch chrome-fmgjjmmmlfnkbppncabfkddbjimcfncm-Default  # Gmail
+gtk-launch chrome-eoficlgicibekocmfdomjbfnjmehnhcd-Default  # Outlook (mail)
+gtk-launch chrome-onfakonipncbomjibdogemfdilnnkcfn-Default  # Slack
+gtk-launch chrome-hpfldicfbfomlpcikngkocigghgafkph-Default  # Google Messages
+# Outlook Calendar is a Desktop Action on the Outlook PWA, not its own PWA —
+# gtk-launch doesn't take actions, so call chrome directly with the deep-link.
+/opt/google/chrome/google-chrome \
+    --profile-directory=Default \
+    --app-id=eoficlgicibekocmfdomjbfnjmehnhcd \
+    --app-launch-url-for-shortcuts-menu-item=https://outlook.cloud.microsoft/calendar &
+sleep 1
+
+swaymsg "workspace number 1"
