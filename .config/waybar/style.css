@@ -93,7 +93,15 @@ window#waybar.hidden {
 #mode,
 #idle_inhibitor {
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 14px;
+    /* Vertical-centering nudge for Nerd Font icons. JetBrainsMono Nerd Font
+     * (v3) renders its icon glyphs high in the line box, so they sat near the
+     * top of each pill after the Nerd Font migration. padding-top pushes the
+     * glyph down; the margin shrinks on top (1px) and keeps 4px on the bottom
+     * to absorb it without growing the pill or clipping. Keep top-pad +
+     * top-margin ≈ 4px (the old symmetric margin) so pill height is unchanged.
+     * Don't "simplify" back to `margin: 4px 3px` — icons will ride high again. */
+    padding-top: 3px;
     margin: 4px 3px;
 }
 
