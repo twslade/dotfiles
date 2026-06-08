@@ -14,12 +14,18 @@
 # Use `number N` so we match the workspace number regardless of the dynamic
 # name suffix added by autoname-workspaces.py.
 
-workspace number 1 output "LG Electronics LG Ultra HD 0x00037F03"
-workspace number 2 output "LG Electronics LG Ultra HD 0x00037F03"
-workspace number 3 output "LG Electronics LG Ultra HD 0x00037F03"
-workspace number 4 output "LG Electronics LG Ultra HD 0x00037F03"
-workspace number 5 output "LG Electronics LG HDR 4K 0x0007A9E5"
-workspace number 6 output "LG Electronics LG HDR 4K 0x0007A9E5"
-workspace number 7 output "LG Electronics LG HDR 4K 0x0007A9E5"
-workspace number 8 output "LG Electronics LG HDR 4K 0x0007A9E5"
-workspace number 9 output "LG Electronics LG HDR 4K 0x0007A9E5"
+# NOW keyed by stable output identifier ("make model serial"), as the comment
+# above always intended — the previous "DP-1"/"DP-2" connector names defeated
+# the whole point and reshuffled again under nouveau.
+set $left  "LG Electronics LG HDR 4K 0x0007A9E5"
+set $right "LG Electronics LG Ultra HD 0x00037F03"
+
+workspace "1" output $right
+workspace "2" output $right
+workspace "3" output $right
+workspace "4" output $right
+
+workspace "5" output $left
+workspace "6" output $left
+workspace "7" output $left
+workspace "8" output $left
