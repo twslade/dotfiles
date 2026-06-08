@@ -65,7 +65,6 @@ ZSH_THEME="robbyrussell"
 plugins=(
     history
     git
-    artisan
     docker
     docker-compose
     zsh-autosuggestions
