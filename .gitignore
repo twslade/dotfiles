@@ -109,3 +109,6 @@
 # Claude Code global user instructions
 !.claude
 !.claude/CLAUDE.md
+
+# Shell secrets - never publish (dotfiles is public)
+.custom/secrets.zsh
