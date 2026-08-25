@@ -19,7 +19,9 @@
 #
 # Layout:
 #   landscape monitor (right): workspaces 1-4  (ws1 Chrome, ws4 Brave)
-#   portrait  monitor (left):  workspaces 5-9  (ws5 tabbed comms PWAs,
+#   portrait  monitor (left):  workspaces 5-9  (ws5 tabbed comms PWAs
+#                                               above the valet
+#                                               automation browser,
 #                                               ws6 Spotify + Obsidian)
 
 set -u
@@ -41,6 +43,7 @@ fi
 # restore on next launch. Patch the files before launching either browser.
 for prefs in \
     "$HOME/.config/google-chrome/Default/Preferences" \
+    "$HOME/.config/google-chrome-valet/Default/Preferences" \
     "$HOME/.config/BraveSoftware/Brave-Browser/Default/Preferences"
 do
     [ -f "$prefs" ] && sed -i \
@@ -57,7 +60,9 @@ for n in 4 3 2 1; do swaymsg "workspace number $n"; done
 
 swaymsg "focus output \"$PORTRAIT\""
 for n in 9 8 7 6; do swaymsg "workspace number $n"; done
-swaymsg "workspace number 5; layout tabbed"
+# ws5 layout is applied at the end of this script, once its windows exist;
+# see the ws5 section below for why setting it here does not survive.
+swaymsg "workspace number 5"
 
 # --- Launch apps onto their target workspaces ---------------------------
 swaymsg "workspace number 6"
@@ -70,7 +75,7 @@ brave-browser --restore-last-session &
 sleep 2
 
 swaymsg "workspace number 1"
-google-chrome --restore-last-session &
+google-chrome --password-store=gnome-libsecret --disable-gpu --ozone-platform=x11 --restore-last-session &
 sleep 3
 
 # PWAs aren't restored by Chrome's session-restore; launch them explicitly.
@@ -82,9 +87,72 @@ gtk-launch chrome-hpfldicfbfomlpcikngkocigghgafkph-Default  # Google Messages
 # Outlook Calendar is a Desktop Action on the Outlook PWA, not its own PWA —
 # gtk-launch doesn't take actions, so call chrome directly with the deep-link.
 /opt/google/chrome/google-chrome \
+    --password-store=gnome-libsecret --disable-gpu --ozone-platform=x11 \
     --profile-directory=Default \
     --app-id=eoficlgicibekocmfdomjbfnjmehnhcd \
     --app-launch-url-for-shortcuts-menu-item=https://outlook.cloud.microsoft/calendar &
 sleep 1
+
+# --- ws5: tabbed PWA stack on top, automation browser below -------------
+# Layout has to be applied AFTER the windows exist. Sway garbage-collects an
+# empty workspace the moment focus leaves it, so a `layout tabbed` set on ws5
+# up front is destroyed along with the workspace, and the PWAs -- moved here
+# by the for_window rules in 20-window-rules.conf -- land in a freshly created
+# splith ws5 instead. Verified 2026-08-25: ws3 and ws7-9 created above do not
+# survive to the end of this script either, for the same reason.
+sleep 3
+
+# Group the PWAs into one tabbed container: wrap the first in a container of
+# its own, tab that container, mark it, then move the rest into the mark.
+swaymsg '[class="Google-chrome" instance="crx_fmgjjmmmlfnkbppncabfkddbjimcfncm"] focus'
+swaymsg 'split h'
+swaymsg 'layout tabbed'
+swaymsg 'focus parent'
+swaymsg 'mark --add pwa_tabs'
+for inst in \
+    crx_eoficlgicibekocmfdomjbfnjmehnhcd \
+    crx_onfakonipncbomjibdogemfdilnnkcfn \
+    crx_hpfldicfbfomlpcikngkocigghgafkph
+do
+    swaymsg "[class=\"Google-chrome\" instance=\"$inst\"] move container to mark pwa_tabs"
+done
+
+# Climb out of the tabbed container so the automation browser opens as its
+# sibling rather than as a fifth tab, then stack the workspace vertically.
+swaymsg "workspace number 5"
+climb=0
+while [ "$(swaymsg -t get_tree --raw | \
+        jq -r '..|objects|select(.focused==true)|.type')" != "workspace" ] \
+      && [ "$climb" -lt 8 ]
+do
+    swaymsg 'focus parent'
+    climb=$((climb + 1))
+done
+swaymsg 'layout splitv'
+
+# valet: the browser the agent drives, on its own profile. Chrome 150 refuses
+# remote debugging on the default profile ("DevTools remote debugging requires
+# a non-default data directory"), so this is a third browser rather than a flag
+# on the ws1 one. --class=valet gives sway and the operator a distinct identity
+# to match on. Logins live in this profile and are made by hand, never copied.
+google-chrome \
+    --user-data-dir="$HOME/.config/google-chrome-valet" \
+    --remote-debugging-port=9222 \
+    --class=valet \
+    --password-store=gnome-libsecret --disable-gpu --ozone-platform=x11 \
+    --no-first-run --no-default-browser-check &
+
+# Wait for the valet window to actually map before moving focus away, or it
+# lands on ws1 instead. Poll rather than sleep a fixed span, so focus goes back
+# to ws1 as soon as it is safe: anything launched by hand while this script
+# holds focus on ws5 (a terminal keybind, say) opens on ws5 by accident.
+valet_wait=0
+while [ -z "$(swaymsg -t get_tree --raw | \
+        jq -r '..|objects|select(.window_properties?.class=="valet")|.id')" ] \
+      && [ "$valet_wait" -lt 30 ]
+do
+    sleep 1
+    valet_wait=$((valet_wait + 1))
+done
 
 swaymsg "workspace number 1"
